@@ -39,7 +39,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 relative mb-[75px]">
-            <img src="/fullteam.jpeg" alt="Kabinet Devoria" className="max-w-[1220px] mx-[110px] rounded-3xl z-10" />
+            <img src="/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="max-w-[1220px] mx-[110px] rounded-3xl z-10" />
 
             <img src="/HIMARPL.svg" alt="HIMARPL" className="max-w-[1210px]  absolute top-[550px] left-[130px] z-20" />
             <p style={textScrollDown} className="absolute text-[16px] tracking-[28px] top-0 left-11 font-bold">
@@ -193,7 +193,7 @@ function Dedication() {
       </div>
       <div className="bg-[#ffe867] w-[160px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] mt-20 z-10">
         <Link to="/dedikasi" className="text-[#806D00] text-[20px]/[24px] ">
-          <h4>Lihat Semua</h4>
+          <h4 className="bg-transparent w-[160px] h-14 rounded-[64px] py-4 px-6">Lihat Semua</h4>
         </Link>
       </div>
     </div>
@@ -215,7 +215,7 @@ function Berita() {
           </p>
           <div className="border w-[206px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] ">
             <Link to="/berita" className=" text-[16px]/[24px] ">
-              <p>Lihat Semua Berita</p>
+              <p className="bg-transparent w-[206px] h-14 py-4 px-6 rounded-[64px]">Lihat Semua Berita</p>
             </Link>
           </div>
         </div>
