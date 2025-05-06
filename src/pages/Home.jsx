@@ -21,8 +21,6 @@ export default function Home() {
   const textStyle2 = {
     WebkitTextStroke: "2px #887300",
     color: "transparent",
-    fontSize: "128px",
-    lineHeight: "180px",
     fontWeight: "700",
   };
   return (
@@ -71,42 +69,87 @@ export default function Home() {
 
       <Berita />
 
-      <div className="bg-[#ffe867] w-full flex justify-center items-center px-[58px] py-[45px] gap-[42px] z-10 overflow-clip">
-        <div className="relative ">
-          <div className="bg-[#ffe867] h-[110px] flex items-center z-10">
-            <p className="text-[#886D00] text-[128px]/[180px] font-bold">VISI</p>
+      <div className="bg-[#ffe867] w-full flex justify-center lg:flex-row flex-col items-center lg:px-[58px] py-[45px] lg:gap-[42px] gap-[28px] z-10 ">
+        <Marquee className="lg:!hidden w-full flex flex-row justify-between  items-center !overflow-visible">
+          {[0, 1, 2, 3].map((i) => (
+            <div className="relative " key={i}>
+              <div className="bg-[#ffe867]  lg:h-[110px] py-1 px-[10px] lg:w-auto w-[100px] flex items-center z-10">
+                <p className="text-[#886D00] lg:text-[128px]/[180px] text-[40px]/[28px] font-bold">VISI</p>
+              </div>
+              <div className="bg-[#ffe867] absolute z-10 w-2 lg:block hidden h-5 top-10 -left-1"></div>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[69px] -top-[28px] left-2.5 -z-10">
+                VISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[60px] -top-[21px] left-2.5 -z-10">
+                VISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-1 -top-0 left-2.5 -z-10">
+                VISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:top-1 top-1.5 left-2.5 -z-10">
+                VISI
+              </p>
+            </div>
+          ))}
+        </Marquee>
+
+        <div className="relative lg:block hidden">
+          <div className="bg-[#ffe867]  lg:h-[110px] py-1 px-[10px] lg:w-auto w-[100px] flex items-center z-10">
+            <p className="text-[#886D00] lg:text-[128px]/[180px] text-[40px]/[28px] font-bold">VISI</p>
           </div>
-          <div className="bg-[#ffe867] absolute z-10 w-2 h-5 top-10 -left-1"></div>
-          <p style={textStyle2} className="absolute -top-[69px] -z-10">
+          <div className="bg-[#ffe867] absolute z-10 w-2 lg:block hidden h-5 top-10 -left-1"></div>
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[69px] -top-[28px] left-2.5 -z-10">
             VISI
           </p>
-          <p style={textStyle2} className="absolute -top-[60px] -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[60px] -top-[21px] left-2.5 -z-10">
             VISI
           </p>
-          <p style={textStyle2} className="absolute -top-1 -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-1 -top-0 left-2.5 -z-10">
             VISI
           </p>
-          <p style={textStyle2} className="absolute top-1 -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:top-1 top-1.5 left-2.5 -z-10">
             VISI
           </p>
         </div>
 
-        <img src="/Group 247.svg" alt="HIMARPL" className="max-w-[718px]" />
+        <img src="/Group 247.svg" alt="HIMARPL" className="lg:w-[718px] w-[164px]" />
 
-        <div className="relative ">
-          <div className="bg-[#ffe867] h-[110px] flex items-center z-10">
-            <p className="text-[#886D00] text-[128px]/[180px] font-bold">MISI</p>
+        <Marquee className="lg:!hidden w-full flex flex-row justify-between  items-center !overflow-visible" direction="right">
+          {[0, 1, 2, 3].map((i) => (
+            <div className="relative " key={i}>
+              <div className="bg-[#ffe867]  lg:h-[110px] py-1 px-[10px] lg:w-auto w-[100px] flex items-center z-10">
+                <p className="text-[#886D00] lg:text-[128px]/[180px] text-[40px]/[28px] font-bold">MISI</p>
+              </div>
+              <div className="bg-[#ffe867] absolute z-10 w-2 lg:block hidden h-5 top-10 -left-1"></div>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[69px] -top-[28px] left-2.5 -z-10">
+                MISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[60px] -top-[21px] left-2.5 -z-10">
+                MISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-1 -top-0 left-2.5 -z-10">
+                MISI
+              </p>
+              <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:top-1 top-1.5 left-2.5 -z-10">
+                MISI
+              </p>
+            </div>
+          ))}
+        </Marquee>
+        <div className="relative lg:block hidden">
+          <div className="bg-[#ffe867]  lg:h-[110px] py-1 px-[10px] lg:w-auto w-[100px] flex items-center z-10">
+            <p className="text-[#886D00] lg:text-[128px]/[180px] text-[40px]/[28px] font-bold">MISI</p>
           </div>
-          <p style={textStyle2} className="absolute -top-[69px] -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[69px] -top-[28px] left-2.5 -z-10">
             MISI
           </p>
-          <p style={textStyle2} className="absolute -top-[60px] -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-[60px] -top-[21px] left-2.5 -z-10">
             MISI
           </p>
-          <p style={textStyle2} className="absolute -top-1 -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:-top-1 -top-0 left-2.5 -z-10">
             MISI
           </p>
-          <p style={textStyle2} className="absolute top-1 -z-10">
+          <p style={textStyle2} className="lg:text-[128px]/[180px] text-[40px] absolute lg:top-1 top-1.5 left-2.5 -z-10">
             MISI
           </p>
         </div>
@@ -231,7 +274,7 @@ function Berita() {
   return (
     <div id="berita" className="bg-white lg:py-20 py-10 flex flex-col items-center justify-between">
       <div className="relative flex lg:flex-row flex-col-reverse items-center justify-between max-w-[1220px] lg:gap-20 gap-6">
-        <div className="border w-[343px] cursor-pointer bg-white h-14 flex lg:hidden justify-center items-center py-4 px-6 rounded-[64px] z-10 ">
+        <div className="border w-[343px] cursor-pointer bg-white h-14 flex lg:hidden justify-center items-center py-4 px-6 rounded-[64px] z-10 mb-10">
           <Link to="/berita" className=" text-[16px]/[24px] ">
             <p className=" w-[206px] h-14 py-4 px-6 rounded-[64px]">Lihat Semua Berita</p>
           </Link>
@@ -262,51 +305,51 @@ function Berita() {
 
 function VisiMisi() {
   return (
-    <div id="visiMisi" className="bg-[#10316B] w-full h-[1080px] pt-[68px] gap-[68px] flex flex-col justify-center items-center relative z-0">
-      <img src="/Group 251.svg" alt="pixel" className="max-w-[300px] absolute -top-7 right-0 -z-20" />
-      <img src="/Group 250.svg" alt="pixel" className="max-w-[259px] absolute bottom-0 left-0 -z-20" />
+    <div id="visiMisi" className="bg-[#10316B] w-full  lg:pt-[68px] pt-[42px] gap-[68px] flex flex-col justify-center items-center relative z-0">
+      <img src="/Group 251.svg" alt="pixel" className="lg:w-[181px] w-[64px] absolute lg:-top-7 top-0 right-0 -z-20" />
+      <img src="/Group 250.svg" alt="pixel" className="lg:w-[207px] w-[80px] absolute bottom-0 left-0 -z-20" />
 
-      <div className="flex flex-col rounded-3xl max-w-[1220px] gap-4 h-[300px] border-8 border-[#FF4B4B]">
-        <div className="flex flex-row items-center justify-between bg-[#FF4B4B] gap-96 rounded-b-3xl max-w-full px-6 py-4">
-          <h4 className="text-white text-[40px]">Visi</h4>
+      <div className="flex flex-col lg:rounded-3xl pb-4 rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[300px]  lg:border-8 border-2 border-[#FF4B4B]">
+        <div className="flex flex-row items-center justify-between bg-[#FF4B4B] lg:gap-96 lg:rounded-b-3xl rounded-b-lg rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
+          <h4 className="text-white lg:text-[40px] text-base">Visi</h4>
 
-          <div className="flex flex-row items-center justify-between gap-4">
-            <div className="w-6 h-6 bg-[#B50000] rounded-full"></div>
-            <div className="w-6 h-6 bg-[#B50000] rounded-full"></div>
-            <div className="w-6 h-6 bg-[#B50000] rounded-full"></div>
+          <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
           </div>
         </div>
 
-        <p className="text-white text-[24px]/[40px] mx-6">
+        <p className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]">
           Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri.
         </p>
       </div>
-      <div className="flex flex-col rounded-3xl max-w-[1220px] gap-4 max-h-[460px] pb-5 border-8 border-[#5573FF]">
-        <div className="flex flex-row items-center justify-between bg-[#5573FF] gap-96 rounded-b-3xl max-w-full px-6 py-4">
-          <h4 className="text-white text-[40px]">Misi</h4>
+      <div className="flex flex-col lg:rounded-3xl rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[460px] lg:pb-5 pb-4 lg:border-8 border-2 border-[#5573FF] lg:mb-[96px] mb-10 bg-[#10316B]">
+        <div className="flex flex-row items-center justify-between bg-[#5573FF] lg:gap-96 lg:rounded-b-3xl rounded-b-lg rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
+          <h4 className="text-white lg:text-[40px] text-base">Misi</h4>
 
-          <div className="flex flex-row items-center justify-between gap-4">
-            <div className="w-6 h-6 bg-[#001DA7] rounded-full"></div>
-            <div className="w-6 h-6 bg-[#001DA7] rounded-full"></div>
-            <div className="w-6 h-6 bg-[#001DA7] rounded-full"></div>
+          <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
           </div>
         </div>
 
         <ul>
           <li>
-            <p className="text-white text-[24px]/[40px] mx-6">• Menyelenggarakan program kerja yang mendukung pengembangan kompetensi teknis dan soft skills mahasiswa.</p>
+            <p className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">• Menyelenggarakan program kerja yang mendukung pengembangan kompetensi teknis dan soft skills mahasiswa.</p>
           </li>
           <li>
-            <p className="text-white text-[24px]/[40px] mx-6">• Membangun budaya organisasi yang profesional, adaptif, dan berintegritas.</p>
+            <p className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">• Membangun budaya organisasi yang profesional, adaptif, dan berintegritas.</p>
           </li>
           <li>
-            <p className="text-white text-[24px]/[40px] mx-6">• Menjadi wadah aspirasi dan advokasi bagi mahasiswa Rekayasa Perangkat Lunak.</p>
+            <p className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">• Menjadi wadah aspirasi dan advokasi bagi mahasiswa Rekayasa Perangkat Lunak.</p>
           </li>
           <li>
-            <p className="text-white text-[24px]/[40px] mx-6">• Meningkatkan kolaborasi dengan berbagai pihak, termasuk institusi pendidikan, industri, dan masyarakat.</p>
+            <p className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">• Meningkatkan kolaborasi dengan berbagai pihak, termasuk institusi pendidikan, industri, dan masyarakat.</p>
           </li>
           <li>
-            <p className="text-white text-[24px]/[40px] mx-6">• Melaksanakan kegiatan sosial dan pengabdian kepada masyarakat yang relevan dengan bidang keilmuan.</p>
+            <p className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">• Melaksanakan kegiatan sosial dan pengabdian kepada masyarakat yang relevan dengan bidang keilmuan.</p>
           </li>
         </ul>
       </div>
