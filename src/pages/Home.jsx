@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import { CardDedication } from "../components/CardDedication";
 import { StrukturOrganisasi } from "./StrukturOrganisasi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Marquee from "react-fast-marquee";
+
 export default function Home() {
   const textScrollDown = {
     writingMode: "vertical-rl",
@@ -55,13 +61,13 @@ export default function Home() {
       <Sponsor />
       <Dedication />
 
-      <div className="bg-black w-full gap-4 flex justify-center items-center flex-row ">
-        <p className="text-8xl/tight text-white font-semibold"># NEWS</p>
-        <p style={textStyle1} className="text-8xl/tight  font-semibold">
-          # NEWS
-        </p>
-        <p className="text-8xl/tight text-white font-semibold"># NEWS</p>
-      </div>
+      <Marquee className="bg-black w-full gap-4 flex justify-center items-center flex-row">
+        {[0, 1, 2, 3].map((i) => (
+          <p key={i} style={i % 2 === 1 ? textStyle1 : {}} className="lg:text-8xl/tight text-[64px] font-semibold text-white">
+            #NEWS
+          </p>
+        ))}
+      </Marquee>
 
       <Berita />
 
@@ -177,21 +183,42 @@ function Dedication() {
   ];
 
   return (
-    <div id="dedikasi" className="bg-[#10316B] h-[1000px] w-full pt-[123px] z-10 relative flex flex-col justify-center items-center dedikasi">
-      <img src="/Vector 67.svg" alt="vector" className="max-w-[391px] absolute -top-[90px] right-0" />
-      <img src="/Group 245.svg" alt="pixel" className="max-w-[672px] absolute top-[280px] -z-10" />
-      <img src="/Vector 50.svg" alt="vector" className="max-w-[326px] absolute bottom-0 left-0 -z-10" />
-      <div className="flex flex-col justify-center items-center gap-8 max-w-[619px]">
-        <h1 className="text-8xl/[54px] text-white">Dedikasi Kami</h1>
+    <div id="dedikasi" className="bg-[#10316B]  w-full lg:pt-[123px] pt-[68px] z-10 relative flex flex-col justify-center items-center dedikasi lg:pb-[96px] pb-[84px]">
+      <img src="/Vector 67.svg" alt="vector" className="lg:w-[237px] w-[190px] absolute -top-[90px] right-0" />
+      <img src="/Group 245.svg" alt="pixel" className="lg:w-[672px] w-[300px] absolute top-[280px] -z-10" />
+      <img src="/Vector 50.svg" alt="vector" className="lg:w-[306px] w-[250px] absolute bottom-0 left-0 -z-10" />
+      <div className="flex flex-col justify-center items-center lg:gap-8 gap-6 lg:w-[619px] w-[343px]">
+        <h1 className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px]">Dedikasi Kami</h1>
         <p className="text-base/[24px] text-white text-center">Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota.</p>
       </div>
 
-      <div className="flex flex-row items-center gap-10 justify-between max-w-[1280px] mt-[103px] z-10">
+      <div className="lg:flex hidden flex-row items-center gap-10 justify-between lg:w-[1280px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
         {dedikasiItems.map((item, index) => (
           <CardDedication key={index} index={index} img={item.img} bgColor={item.bgColor} title={item.title} />
         ))}
       </div>
-      <div className="bg-[#ffe867] w-[160px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] mt-20 z-10">
+
+      <Swiper
+        modules={[Autoplay, Navigation]}
+        spaceBetween={20}
+        slidesPerView="auto"
+        className="lg:!hidden w-[343px] z-10 px-4 lg:mt-[103px] mt-8"
+        centeredSlides={true}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+      >
+        {dedikasiItems.map((item, index) => (
+          <SwiperSlide
+            key={index}
+            className="!w-auto" // biar item menyesuaikan ukuran kontennya
+          >
+            <CardDedication index={index} img={item.img} bgColor={item.bgColor} title={item.title} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="bg-[#ffe867] lg:w-[160px] w-[343px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] lg:mt-20 mt-9 z-10">
         <Link to="/dedikasi" className="text-[#806D00] text-[20px]/[24px] ">
           <h4 className="bg-transparent w-[160px] h-14 rounded-[64px] py-4 px-6">Lihat Semua</h4>
         </Link>
@@ -202,18 +229,27 @@ function Dedication() {
 
 function Berita() {
   return (
-    <div id="berita" className="bg-white py-20 flex flex-col items-center justify-between">
-      <div className="relative flex flex-row items-center justify-between max-w-[1220px] gap-20">
-        <div className="bg-[url('/berita.jpg')] w-[576px] h-[612px] bg-center bg-cover rounded-3xl" />
+    <div id="berita" className="bg-white lg:py-20 py-10 flex flex-col items-center justify-between">
+      <div className="relative flex lg:flex-row flex-col-reverse items-center justify-between max-w-[1220px] lg:gap-20 gap-6">
+        <div className="border w-[343px] cursor-pointer bg-white h-14 flex lg:hidden justify-center items-center py-4 px-6 rounded-[64px] z-10 ">
+          <Link to="/berita" className=" text-[16px]/[24px] ">
+            <p className=" w-[206px] h-14 py-4 px-6 rounded-[64px]">Lihat Semua Berita</p>
+          </Link>
+        </div>
 
-        <div className="flex flex-col justify-center max-w-[580px]">
-          <img src="/Group 241.svg" alt="pixel" className="absolute max-w-[72px] top-0 right-0" />
-          <img src="/Group 252.svg" alt="pixel" className="absolute max-w-[303px] bottom-0 right-0" />
-          <p className="text-[64px]/[72px] font-semibold">Akses Berita Aktual RPL di Sini.</p>
-          <p className="mt-6 mb-10">
+        <img src="/berita.jpg" alt="Berita" className="lg:w-[576px] lg:h-[612px] w-[343px] h-[200px] object-cover rounded-3xl" />
+
+        <div className="flex flex-col justify-center lg:w-[580px] w-[343px]">
+          <img src="/Group 241.svg" alt="pixel" className="absolute max-w-[72px] lg:top-0 top-40 right-0" />
+          <img src="/Group 252.svg" alt="pixel" className="absolute max-w-[303px] bottom-0 right-5 " />
+          <p className="lg:text-[64px]/[72px] text-[40px] min-w-[343px] font-semibold">
+            Akses Berita <br /> Aktual RPL <br />
+            di Sini.
+          </p>
+          <p className="mt-6 lg:mb-10 min-w-[343px]">
             <b> Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025.
           </p>
-          <div className="border w-[206px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] ">
+          <div className="border w-[206px] h-14 lg:flex hidden justify-center items-center py-4 px-6 cursor-pointer rounded-[64px] ">
             <Link to="/berita" className=" text-[16px]/[24px] ">
               <p className="bg-transparent w-[206px] h-14 py-4 px-6 rounded-[64px]">Lihat Semua Berita</p>
             </Link>
