@@ -149,11 +149,11 @@ export default function MainLayout() {
           </div>
         </div>
       )}
-      <div className="flex flex-col justify-center items-center lg:mt-[68px] mt-10">
+      <div className={`flex flex-col justify-center items-center lg:mt-[68px] mt-10`}>
         <div
           className={`sticky top-8 z-50 transition-transform duration-500 ${
             showNavbar ? "translate-y-0" : "-translate-y-[115px]"
-          } bg-white flex flex-row gap-32 justify-between items-center max-w-[1220px] mx-[110px] border border-[#A7A7A7] rounded-2xl lg:gap-[360px]  drop-shadow(0px_4px_12px_rgba(0,0,0,0.04)) lg:flex-row lg:px-0 px-4 min-w-[343px] h-[70px]`}
+          } bg-white flex flex-row gap-32 justify-between items-center lg:w-[1220px] mx-[110px] border border-[#A7A7A7] rounded-2xl lg:gap-auto  drop-shadow(0px_4px_12px_rgba(0,0,0,0.04)) lg:flex-row lg:px-0 px-4 min-w-[343px] h-[70px]`}
         >
           <div className="lg:hidden">
             <Icon icon="mdi:hamburger-menu" className="cursor-pointer w-8 h-8 " onClick={() => setOpenSidebar(!openSidebar)} />
@@ -207,15 +207,46 @@ export default function MainLayout() {
         </div>
         <Outlet />
 
-        <footer className="w-full bg-[#232323] pb-5 pt-14 px-[72px] flex flex-col">
+        <footer className="w-full bg-[#232323] lg:pb-5 pb-4 lg:pt-14 pt-5 lg:px-[72px] px-4 flex flex-col">
           <div className="flex flex-row items-center justify-between border-b border-[#B2B2B2] pb-5">
-            <div className="flex flex-col justify-between h-[194px]">
+            <div className="flex flex-col items-start justify-between lg:h-[194px]">
               <img src="/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
-              <div className="max-w-[416px]">
-                <p className="text-white text-base/[24px]">Empowering you with knowledge to make informed health decisions. (Dummy) </p>
+              <div className="lg:w-[416px] w-[343px]">
+                <p className="text-white lg:text-base/[24px] text-[12px]/[24px]">Empowering you with knowledge to make informed health decisions. (Dummy) </p>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="lg:hidden flex mt-9 flex-row gap-[64px]">
+                <div className="flex flex-col gap-4">
+                  <p className="text-white font-bold text-[12px]">Lorem</p>
+                  <p className="text-white  text-[12px]">apa</p>
+                  <p className="text-white  text-[12px]">apa</p>
+                  <p className="text-white  text-[12px]">apa</p>
+                </div>
+
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-row gap-4">
+                    {sosmedLinks.map((link) => (
+                      <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
+                        <Icon icon={link.icon} className="text-black w-4 h-4 hover:text-gray-500 transition-all duration-150" />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-row gap-4">
+                      <Icon icon="mdi:email-outline" className="text-white w-6 h-6" />
+                      <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
+                        himarpl@upi.edu
+                      </a>
+                    </div>
+                    <div className="flex flex-row gap-4">
+                      <Icon icon="mingcute:phone-line" className="text-white w-6 h-6" />
+                      <p className="text-white text-base/[24px]">+192 666 777</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:flex hidden flex-col gap-2">
                 <div className="flex flex-row gap-4">
                   <Icon icon="mdi:email-outline" className="text-white w-6 h-6" />
                   <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
@@ -229,7 +260,7 @@ export default function MainLayout() {
               </div>
             </div>
 
-            <div className="flex flex-row gap-16">
+            <div className="lg:flex hidden flex-row gap-16">
               {footerLinks.map((section, i) => (
                 <div key={i} className="flex flex-col gap-4">
                   {section.map((link, j) => (
@@ -243,8 +274,8 @@ export default function MainLayout() {
           </div>
 
           <div className="flex flex-row items-center justify-between mt-5">
-            <p className="text-[#747474] text-base/[24px]">&copy; Copyright 2025 HIMARPL all rights reserved.</p>
-            <div className="flex flex-row gap-4">
+            <p className="text-[#747474] lg:text-base/[24px] text-[10px]">&copy; Copyright 2025 HIMARPL all rights reserved.</p>
+            <div className="lg:flex hidden flex-row gap-4">
               {sosmedLinks.map((link, i) => (
                 <NavLink key={i} to={link.to} target="_blank">
                   <Icon icon={link.icon} className="text-[#747474] w-4 h-4 hover:text-white transition-all duration-150" />

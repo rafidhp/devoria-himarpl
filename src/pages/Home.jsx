@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Marquee from "react-fast-marquee";
+import { Contacts } from "./Contacts";
 
 export default function Home() {
   const textScrollDown = {
@@ -29,13 +30,13 @@ export default function Home() {
         <div className="relative">
           <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:max-w-[1220px] lg:mx-[110px] mx-4">
             <div className="lg:max-w-[555px] flex flex-col gap-2">
-              <p className="font-bold text-[40px]/[64px]">HIMARPL</p>
+              <p className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]">HIMARPL</p>
               <div className="bg-black p-2">
-                <p className="font-bold text-[32px] text-white underline decoration-[#FFE867] decoration-2 underline-offset-8">Kabinet Devoria</p>
+                <p className="font-bold text-[32px] lg:text-[56px]/[64px] text-white underline decoration-[#FFE867] decoration-2 underline-offset-8">Kabinet Devoria</p>
               </div>
             </div>
 
-            <div className="lg:max-w-[580px] w-[343px]">
+            <div className="lg:w-[580px] w-[343px]">
               <p className="text-base/[24px]">
                 <b>Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025.
               </p>
@@ -161,22 +162,7 @@ export default function Home() {
 
       <Sejarah />
 
-      <div id="contact" className="bg-[url(/rectangle498.png)] w-full pt-[110px] bg-cover bg-center flex flex-row items-start gap-4 justify-center">
-        <div className="flex flex-row items-end h-full">
-          <img src="/Maskot.svg" alt="maskot" className="max-w-[580px]" />
-        </div>
-
-        <div className="flex flex-col justify-center pt-[210px] h-full gap-10">
-          <div className="flex flex-col gap-4 max-w-[760px]">
-            <p className="font-semibold text-8xl">Hubungi Kami</p>
-            <p className="text-base/[24px]">Jika Anda memiliki pertanyaan, masukan, atau ingin mengetahui lebih lanjut tentang layanan kami, jangan ragu untuk menghubungi kami.</p>
-          </div>
-
-          <div className="cursor-pointer flex items-center justify-center px-6 py-4 rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-lg bg-black w-[231px]">
-            <p className="font-semibold text-white">Pelajari Selengkapnya</p>
-          </div>
-        </div>
-      </div>
+      <Contacts />
     </>
   );
 }
@@ -358,6 +344,10 @@ function VisiMisi() {
 }
 
 function Sejarah() {
+  const textStyle1 = {
+    WebkitTextStroke: "2px #EBEBEB",
+    color: "transparent",
+  };
   const cabinets = [
     { src: "/inisiator.png", alt: "Inisiator", name: "Inisiator", year: "2020" },
     { src: "/inspira.png", alt: "Inspira", name: "Inspira", year: "2021" },
@@ -367,18 +357,48 @@ function Sejarah() {
     { src: "/devoria.png", alt: "Devoria", name: "Devoria", year: "2025" },
   ];
   return (
-    <div id="journey" className="bg-[#10316B] w-full  items-center gap-[135px] flex flex-col justify-center pt-[68px]">
-      <h1 className="text-white text-8xl">Perjalanan HIMARPL</h1>
+    <div id="journey" className="bg-[#10316B] w-full  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
+      <h1 className="text-white lg:text-8xl text-[64px]/[72px] text-center">Perjalanan HIMARPL</h1>
 
       <div className="w-full h-[600px] flex flex-col items-center justify-center relative bg-[#0B409C] gap-14">
-        <img src="/Group 253.svg" alt="pixel" className="absolute max-w-[259px] -top-28 left-0" />
-        <img src="/Group 253.svg" alt="pixel" className="absolute max-w-[259px] -top-28 right-0 scale-x-[-1]" />
+        <img src="/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] lg:-top-28 -top-11 w-[88px] left-0" />
+        <img src="/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] w-[88px] lg:-top-28 -top-11  right-0 scale-x-[-1]" />
+
         <div className="bg-[#FFE867] h-2 w-[1084px]"></div>
-        <div className="bg-[#F2F7FF] w-full h-[400px] flex items-center justify-center">
-          <div className="w-[1312px] flex items-center justify-between">
+        <div className="bg-[#F2F7FF] w-full h-[400px] flex items-center justify-center relative">
+          <p className=" absolute lg:text-[300px] select-none text-[64px]" style={textStyle1}>
+            KABINET
+          </p>
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={20}
+            className="lg:!hidden w-auto flex items-center justify-center "
+            centeredSlides={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={"auto"}
+          >
             {cabinets.map((cabinet, index) => {
               return (
-                <div key={index} className="flex flex-col items-center justify-center gap-[64px]">
+                <SwiperSlide key={index} className="">
+                  <div className="flex flex-col items-center justify-center gap-[64px] z-10">
+                    <img src={cabinet.src} alt={cabinet.alt} className="h-[128px] w-auto" />
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <p className="font-semibold text-2xl">{cabinet.name}</p>
+                      <h1 className="text-[#4B4B4B] font-normal">{cabinet.year}</h1>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+
+          <div className=" w-[1312px] lg:flex hidden items-center justify-between ">
+            {cabinets.map((cabinet, index) => {
+              return (
+                <div key={index} className="flex flex-col items-center justify-center gap-[64px] z-10">
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px] w-full" />
                   <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-semibold text-2xl">{cabinet.name}</p>
