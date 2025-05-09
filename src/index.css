@@ -19,6 +19,6 @@ p {
   font-style: normal;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
