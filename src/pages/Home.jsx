@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <div id="home" className="pt-8 bg-white">
         <div className="relative">
-          <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:max-w-[1220px] lg:mx-[110px] mx-4">
+          <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:w-[1220px] lg:mx-[110px] mx-4">
             <div className="lg:max-w-[555px] flex flex-col gap-2">
               <p className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]">HIMARPL</p>
               <div className="bg-black p-2">
@@ -46,11 +46,11 @@ export default function Home() {
           <div className="lg:mt-8 mt-6 relative lg:mb-[75px] mb-[48px]">
             <img src="/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="lg:w-[1220px] lg:mx-[110px] mx-4 w-[343px] rounded-3xl z-10" />
 
-            <img src="/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] top-[157px] left-[33px] z-20" />
-            <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 lg:left-11 left-0 font-bold">
+            <img src="/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] xl:left-[120px] top-[157px] left-[33px] z-20" />
+            <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold">
               scrolldown
             </p>
-            <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] lg:-bottom-[28px] tracking-[8px] bottom-0 lg:right-11 right-0 font-bold">
+            <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] lg:-bottom-[28px] xl:right-[84px] tracking-[8px] bottom-0 lg:right-11 right-0 font-bold">
               scrolldown
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
 
       <Berita />
 
-      <div className="bg-[#ffe867] w-full flex justify-center lg:flex-row flex-col items-center lg:px-[58px] py-[45px] lg:gap-[42px] gap-[28px] z-10 ">
+      <div className="bg-[#ffe867] w-full flex justify-center lg:flex-row flex-col items-center lg:px-[58px] py-[45px] xl:gap-3 lg:gap-[42px] gap-[28px] z-10 ">
         <Marquee className="lg:!hidden w-full flex flex-row justify-between  items-center !overflow-visible">
           {[0, 1, 2, 3].map((i) => (
             <div className="relative " key={i}>
@@ -113,7 +113,7 @@ export default function Home() {
           </p>
         </div>
 
-        <img src="/Group 247.svg" alt="HIMARPL" className="lg:w-[718px] w-[164px]" />
+        <img src="/Group 247.svg" alt="HIMARPL" className="xl:w-[618px] lg:w-[718px] w-[164px]" />
 
         <Marquee className="lg:!hidden w-full flex flex-row justify-between  items-center !overflow-visible" direction="right">
           {[0, 1, 2, 3].map((i) => (
@@ -180,7 +180,7 @@ function Sponsor() {
       <div className=" flex flex-col justify-center items-center">
         <h4 className="text-[#806D00] text-2xl">Sponsor dan Mitra Kami</h4>
 
-        <div className="flex items-center flex-row lg:gap-[54px] gap-4 h-auto justify-between lg:w-[1255px] w-[327px] mt-4">
+        <div className="flex items-center flex-row lg:gap-[54px] gap-4 h-auto justify-between xl:w-[1220px] lg:w-[1255px] w-[327px] mt-4">
           {sponsors.map((sponsor, index) => (
             <div key={index} className="flex items-center ">
               <img src={sponsor.src} alt={sponsor.alt} className={` h-auto`} style={{ width: "100%", maxWidth: sponsor.maxWidth, minWidth: sponsor.minWidth }} />
@@ -221,7 +221,7 @@ function Dedication() {
         <p className="text-base/[24px] text-white text-center">Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota.</p>
       </div>
 
-      <div className="lg:flex hidden flex-row items-center gap-10 justify-between lg:w-[1280px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
+      <div className="lg:flex hidden flex-row items-center lg:gap-10 xl:gap-4 justify-between lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
         {dedikasiItems.map((item, index) => (
           <CardDedication key={index} index={index} img={item.img} bgColor={item.bgColor} title={item.title} />
         ))}
@@ -395,7 +395,7 @@ function Sejarah() {
             })}
           </Swiper>
 
-          <div className=" w-[1312px] lg:flex hidden items-center justify-between ">
+          <div className=" xl:w-[1220px] lg:w-[1312px] lg:flex hidden items-center justify-between ">
             {cabinets.map((cabinet, index) => {
               return (
                 <div key={index} className="flex flex-col items-center justify-center gap-[64px] z-10">
