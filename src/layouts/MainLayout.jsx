@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useLocation } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 
@@ -71,14 +71,15 @@ export default function MainLayout() {
   const [showNavbar, setShowNavbar] = useState(true);
   const lastScroll = useRef(0);
 
-  const scrollRef = useSmoothScroll((scrollY) => {
+  const handleScroll = useCallback((scrollY) => {
     if (scrollY > lastScroll.current && scrollY > 50) {
       setShowNavbar(false);
     } else {
       setShowNavbar(true);
     }
     lastScroll.current = scrollY;
-  });
+  }, []);
+  const scrollRef = useSmoothScroll(handleScroll);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -91,15 +92,26 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="h-full overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh", overflowY: "auto" }}>
-      {openSidebar && (
-        <div className={`fixed top-0 left-0 w-full h-full z-[60] transform-all duration-300 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`} onClick={() => setOpenSidebar(false)}>
-          <div
-            ref={sideBarRef}
-            className={`fixed top-0 left-0 h-full w-[65%] bg-[#222222] pt-10 flex flex-col items-center transform transition-all duration-300 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-col justify-between items-start gap-16">
+    <div className="h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
+      <div className={`fixed top-0 left-0 w-full h-full z-[60] transform-all duration-600 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`} onClick={() => setOpenSidebar(false)}>
+        <div
+          ref={sideBarRef}
+          className={`fixed top-0 left-0 h-full w-[65%] bg-[#222222] pt-10 flex flex-col items-center transform transition-all duration-300 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex flex-col justify-between items-start gap-16">
+            <NavLink
+              to={"/"}
+              onClick={() => {
+                if (currentPath === "") {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
+              <img src="/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
+            </NavLink>
+
+            <nav className="flex flex-col gap-4">
               <NavLink
                 to={"/"}
                 onClick={() => {
@@ -107,52 +119,40 @@ export default function MainLayout() {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
+                className={`${currentPath === "" ? "text-white font-semibold" : "text-[#9C9C9C]"} `}
               >
-                <img src="/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
+                Beranda
               </NavLink>
-
-              <nav className="flex flex-col gap-4">
-                <NavLink
-                  to={"/"}
-                  onClick={() => {
-                    if (currentPath === "") {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  }}
-                  className={`${currentPath === "" ? "text-white font-semibold" : "text-[#9C9C9C]"} `}
-                >
-                  Beranda
+              {links.map((link, i) => (
+                <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-white font-semibold" : "text-[#9C9C9C]"} `}>
+                  {link.name}
                 </NavLink>
-                {links.map((link) => (
-                  <NavLink to={link.to} className={`${currentPath === link.path ? "text-white font-semibold" : "text-[#9C9C9C]"} `}>
-                    {link.name}
-                  </NavLink>
-                ))}
-                <div className="relative " ref={dropdownRef}>
-                  <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
-                    About Us
-                    <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
-                  </div>
-                  {isOpen && (
-                    <div className="absolute mt-2  rounded-md p-2 z-50">
-                      <NavLink to="/be" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
-                        BE
-                      </NavLink>
-                      <NavLink to="/dp" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
-                        DP
-                      </NavLink>
-                    </div>
-                  )}
+              ))}
+              <div className="relative " ref={dropdownRef}>
+                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+                  About Us
+                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
                 </div>
-              </nav>
-            </div>
+                {isOpen && (
+                  <div className="absolute mt-2  rounded-md p-2 z-50">
+                    <NavLink to="/be" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                      BE
+                    </NavLink>
+                    <NavLink to="/dp" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                      DP
+                    </NavLink>
+                  </div>
+                )}
+              </div>
+            </nav>
           </div>
         </div>
-      )}
+      </div>
+
       <div className={`flex flex-col justify-center items-center lg:mt-[68px] mt-10`}>
         <div
           className={`sticky top-8 z-50 transition-transform duration-500 ${
-            showNavbar ? "translate-y-0" : "-translate-y-[115px]"
+            showNavbar ? "translate-y-0" : "-translate-y-[115px] "
           } bg-white flex flex-row gap-32 justify-between items-center lg:w-[1220px] mx-[110px] border border-[#A7A7A7] rounded-2xl lg:gap-auto  drop-shadow(0px_4px_12px_rgba(0,0,0,0.04)) lg:flex-row lg:px-0 px-4 min-w-[343px] h-[70px]`}
         >
           <div className="lg:hidden">
@@ -181,8 +181,8 @@ export default function MainLayout() {
             >
               Beranda
             </NavLink>
-            {links.map((link) => (
-              <NavLink to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
+            {links.map((link, i) => (
+              <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
                 {link.name}
               </NavLink>
             ))}
@@ -225,8 +225,8 @@ export default function MainLayout() {
 
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-row gap-4">
-                    {sosmedLinks.map((link) => (
-                      <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
+                    {sosmedLinks.map((link, i) => (
+                      <div key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
                         <Icon icon={link.icon} className="text-black w-4 h-4 hover:text-gray-500 transition-all duration-150" />
                       </div>
                     ))}
