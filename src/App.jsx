@@ -4,6 +4,8 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import { StrukturOrganisasi } from "./pages/StrukturOrganisasi";
 import { Contacts } from "./pages/Contacts";
+import EmailForm from "./pages/EmailForm";
+
 function App() {
   return (
     <Routes>
@@ -13,6 +15,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<h1>Under Construction :D</h1>} />
       </Route>
+      <Route path="/contact/test" element={<EmailForm />}></Route>
     </Routes>
   );
 }
