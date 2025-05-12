@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Contacts = () => {
   return (
     <div
       id="contact"
       className={`bg-[url(/rectangle498.png)] w-full lg:pt-[110px] pt-10 px-4 bg-cover bg-center flex lg:flex-row flex-col-reverse lg:items-start items-center lg:gap-4 gap-6 justify-center lg:pb-0 pb-[64px] ${
-        location.pathname === "/contacts" ? "-mt-[135px]" : "mt-0"
+        location.pathname === "/contact" ? "-mt-[135px]" : "mt-0"
       }`}
     >
       <div className="cursor-pointer lg:hidden flex items-center justify-center px-6 py-4 rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-lg bg-black w-[343px]">
-        <p className="font-semibold text-white">Pelajari Selengkapnya</p>
+        <Link to="/contact/submit">
+          <p className="font-semibold text-white">Pelajari Selengkapnya</p>
+        </Link>
       </div>
       <div className=" flex-row items-end h-full lg:flex hidden">
         <img src="/Maskot.svg" alt="maskot" className="max-w-[580px] " />
@@ -26,7 +29,9 @@ export const Contacts = () => {
         </div>
 
         <div className="cursor-pointer lg:flex hidden items-center justify-center px-6 py-4 rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-lg bg-black w-[231px]">
-          <p className="font-semibold text-white">Pelajari Selengkapnya</p>
+          <Link to="/contact/submit">
+            <p className="font-semibold text-white">Pelajari Selengkapnya</p>
+          </Link>
         </div>
       </div>
     </div>
