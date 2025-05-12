@@ -48,17 +48,19 @@ const EmailForm = () => {
             <input type="text" className="border-1 border-[#979797] rounded-2xl px-6 py-4 lg:w-[800px]" placeholder="Giorno Giovanna" name="from_name" required />
           </div>
 
-          <div className="flex flex-row items-end justify-between">
+          <div className="flex flex-row items-end gap-4">
             <div className="flex flex-col gap-4">
               <label>
                 <p className="font-bold text-2xl">Ketik Pesan Disini</p>
               </label>
-              <textarea name="message" className="border-1 border-[#979797] rounded-2xl px-6 py-4 lg:w-[800px] lg:max-h-[250px]" placeholder="Ketik aspirasimu disini" required />
+              <textarea name="message" rows="5" className="border-1 border-[#979797] rounded-2xl px-6 py-4 lg:w-[800px] lg:max-h-[250px]" placeholder="Ketik aspirasimu disini" required />
             </div>
 
-            <button type="submit" className="hover:cursor-pointer  px-6 py-2 rounded-2xl bg-black text-white">
-              Kirim
-            </button>
+            <div className="self-center mx-auto">
+              <button type="submit" className="hover:cursor-pointer  px-12 py-3 rounded-2xl bg-black text-white text-[20px] font-semibold ms-20">
+                Kirim
+              </button>
+            </div>
           </div>
         </div>
       </form>
