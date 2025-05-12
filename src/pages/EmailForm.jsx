@@ -49,7 +49,7 @@ const EmailForm = () => {
 
       <div className="h-screen overflow-y-scroll relative">
         <form ref={form} onSubmit={sendEmail} className="lg:mx-[110px] lg:my-[68px] my-6 mx-4 h-fit relative">
-          <img src="/devoria.png" alt="Devoria" className="absolute top-0 right-0 w-[362px] opacity-[12%] -z-10" />
+          <img src="/devoria.png" alt="Devoria" className="absolute top-1/3 lg:right-0 w-[362px] opacity-[12%] -z-10" />
           <div className="flex flex-col lg:gap-10 gap-[85px]">
             <div className="flex gap-4 items-center cursor-pointer hover:bg-gray-100 px-4 py-2 rounded-2xl w-fit" onClick={() => (window.location.href = "/contact")}>
               <Icon icon="mingcute:left-line" className="lg:w-10 lg:h-10 w-6 h-6" />
@@ -79,15 +79,17 @@ const EmailForm = () => {
                 <label>
                   <p className="font-bold text-2xl">Ketik Pesan Disini</p>
                 </label>
-                <textarea name="message" className="border-1 border-[#979797] rounded-2xl px-6 py-4 lg:w-[800px] w-full lg:max-h-[250px]" placeholder="Ketik aspirasimu disini" required />
+                <textarea name="message" rows="4" className="border-1 border-[#979797] rounded-2xl px-6 py-4 lg:w-[800px] w-full lg:max-h-[250px]" placeholder="Ketik aspirasimu disini" required />
               </div>
 
-              <button type="submit" className="hover:cursor-pointer lg:block hidden  px-6 py-2 rounded-2xl bg-black text-white">
-                Kirim
-              </button>
+              <div className="flex flex-col mx-auto gap-4">
+                <button type="submit" className="hover:cursor-pointer lg:block hidden ms-[128px] px-16 py-2 rounded-2xl bg-black text-white text-[20px]">
+                  Kirim
+                </button>
+              </div>
             </div>
 
-            <button type="submit" className="lg:hidden block hover:cursor-pointer mt-6  px-6 py-2 rounded-2xl bg-black text-white">
+            <button type="submit" className="lg:hidden block hover:cursor-pointer mt-6 px-6 py-2 rounded-2xl bg-black text-white">
               Kirim
             </button>
           </div>
