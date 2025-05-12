@@ -49,7 +49,7 @@ const EmailForm = () => {
 
       <div className="h-screen overflow-y-scroll relative">
         <form ref={form} onSubmit={sendEmail} className="lg:mx-[110px] lg:my-[68px] my-6 mx-4 h-fit relative">
-          <img src="/devoria.png" alt="Devoria" className="absolute top-1/3 lg:right-0 w-[362px] opacity-[12%] -z-10" />
+          <img src="/devoria.png" alt="Devoria" className="absolute top-1/3 left-1/2 -translate-x-1/2 lg:right-0 lg:left-auto lg:translate-x-0 w-[362px] opacity-[12%] -z-10" />
           <div className="flex flex-col lg:gap-10 gap-[85px]">
             <div className="flex gap-4 items-center cursor-pointer hover:bg-gray-100 px-4 py-2 rounded-2xl w-fit" onClick={() => (window.location.href = "/contact")}>
               <Icon icon="mingcute:left-line" className="lg:w-10 lg:h-10 w-6 h-6" />
