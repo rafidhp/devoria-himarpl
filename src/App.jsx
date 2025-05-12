@@ -12,10 +12,10 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="struktur" element={<StrukturOrganisasi />} />
-        <Route path="contacts" element={<Contacts />} />
+        <Route path="contact" element={<Contacts />} />
         <Route path="*" element={<h1>Under Construction :D</h1>} />
       </Route>
-      <Route path="/contact/test" element={<EmailForm />}></Route>
+      <Route path="/contact/submit" element={<EmailForm />}></Route>
     </Routes>
   );
 }

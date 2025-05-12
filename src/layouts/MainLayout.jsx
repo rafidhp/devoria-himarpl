@@ -8,7 +8,7 @@ export default function MainLayout() {
     { to: "/dedikasi", path: "dedikasi", name: "Dedikasi" },
     { to: "/berita", path: "berita", name: "Berita" },
     { to: "/struktur", path: "struktur", name: "Struktur Organisasi" },
-    { to: "/contacts", path: "contacts", name: "Contacts" },
+    { to: "/contact", path: "contacts", name: "Contacts" },
   ];
 
   const footerLinks = [
