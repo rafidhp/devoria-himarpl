@@ -24,7 +24,7 @@ export const Contacts = () => {
       </div>
 
       <div className="flex flex-col justify-center lg:pt-[210px] h-full gap-10">
-        <div className="flex flex-col gap-4 lg:max-w-[760px] w-[343px]">
+        <div className="flex flex-col gap-4 lg:w-[760px] w-[343px]">
           <AnimatedLongText className="font-semibold lg:text-8xl text-[40px] flex  lg:pt-0 pt-[50px]" text="Hubungi Kami" />
           {/* <p className="font-semibold lg:text-8xl text-[64px] flex  lg:pt-0 pt-[110px]">Hubungi Kami</p> */}
           {/* <p className="font-semibold lg:hidden text-[64px] ">Hubungi Kami</p> */}

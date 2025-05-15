@@ -5,7 +5,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.25,
     },
   },
 };
@@ -17,7 +17,7 @@ const wordAnimation = {
 
 const AnimatedText = ({ text, className = "", style = {} }) => {
   return (
-    <motion.div variants={container} initial="hidden" animate="show">
+    <motion.div variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }}>
       <motion.p className={`${className}`} style={style}>
         {text.split("").map((char, index) => (
           <motion.span key={`char-${index}`} variants={wordAnimation}>
