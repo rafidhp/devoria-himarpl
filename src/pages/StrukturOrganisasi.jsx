@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import AnimatedText from "../components/AnimatedText";
+import AnimatedLongText from "../components/AnimatedLongText";
 
 export const StrukturOrganisasi = () => {
   const [activeSection, setActiveSection] = useState("be");
@@ -7,13 +9,18 @@ export const StrukturOrganisasi = () => {
   return (
     <div id="strukturOrganisasi" className="bg-white pt-10 lg:pt-[68px] flex flex-col items-center pb-[50px]">
       <div className="flex flex-col items-center lg:w-[1053px] w-[343px] gap-4">
-        <p className="lg:text-8xl text-center text-[40px] font-bold ">Struktur Organisasi</p>
+        <AnimatedLongText className="lg:text-8xl text-center text-[40px] font-bold" text="Struktur Organisasi" />
+        {/* <p className="lg:text-8xl text-center text-[40px] font-bold ">Struktur Organisasi</p> */}
         <div className="lg:w-[700px] w-[343px]">
-          <p className="text-base/[31px] text-center text-[#404040]">
+          <AnimatedLongText
+            className="text-base/[31px] text-center text-[#404040]"
+            text="HIMARPL memiliki dua badan yang memiliki perannya masing-masing. <b>Badan Eksekutif (BE)</b> merupakan Lembaga Eksekutif HIMARPL yang berperan dalam pelaksanaan kegiatan kemahasiswaan. Sedangkan <b>Dewan Perwakilan (DP)</b> merupakan Lembaga Legislatif yang berperan sebagai Dewan Perwakilan Mahasiswa."
+          />
+          {/* <p className="text-base/[31px] text-center text-[#404040]">
             HIMARPL memiliki dua badan yang memiliki perannya masing-masing.
             <b>Badan Eksekutif (BE)</b> merupakan Lembaga Eksekutif HIMARPL yang berperan dalam pelaksanaan kegiatan kemahasiswaan. Sedangkan <b>Dewan Perwakilan (DP)</b> merupakan Lembaga Legislatif yang berperan sebagai Dewan Perwakilan
             Mahasiswa.
-          </p>
+          </p> */}
         </div>
       </div>
 
