@@ -12,6 +12,18 @@ import AnimatedText from "../components/AnimatedText";
 import AnimatedText2 from "../components/AnimatedText2";
 import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
+import AnimatedImage from "../components/AnimatedImage";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+
+const duration = 0.6;
+const delay = 0;
+const threshold = 0.1;
+const animations = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
 export default function Home() {
   const textScrollDown = {
     writingMode: "vertical-rl",
@@ -53,7 +65,7 @@ export default function Home() {
           </div>
 
           <div className="lg:mt-8 mt-6 relative lg:mb-[75px] mb-[48px]">
-            <img src="/himarpl/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="lg:w-[1220px] lg:mx-[110px] mx-4 w-[343px] rounded-3xl z-10" />
+            <AnimatedImage src="/himarpl/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="lg:w-[1220px] lg:mx-[110px] mx-4 w-[343px] rounded-3xl z-10" />
 
             <img src="/himarpl/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] xl:left-[120px] top-[157px] left-[33px] z-20" />
             <AnimatedText style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold" text="scrolldown" />
@@ -284,7 +296,7 @@ function Berita() {
           </Link>
         </div>
 
-        <img src="/news/berita.jpg" alt="Berita" className="lg:w-[576px] lg:h-[612px] w-[343px] h-[200px] object-cover rounded-3xl" />
+        <AnimatedImage src="/news/berita.jpg" alt="Berita" className="lg:w-[576px] lg:h-[612px] w-[343px] h-[200px] object-cover rounded-3xl" animationType="slideRight" />
 
         <div className="flex flex-col justify-center lg:w-[580px] w-[343px]">
           <img src="/ornaments/Group 241.svg" alt="pixel" className="absolute max-w-[72px] lg:top-0 top-40 right-0" />
@@ -376,7 +388,7 @@ function Sejarah() {
     { src: "/cabinetsLogo/explora.png", alt: "Explora", name: "Explora", year: "2022" },
     { src: "/cabinetsLogo/manifest.png", alt: "Manifest", name: "Manifest", year: "2023" },
     { src: "/cabinetsLogo/ascendia.png", alt: "Ascendia", name: "Ascendia", year: "2024" },
-    { src: "/cabinetsLogo/devoria.png", alt: "Devoria", name: "Devoria", year: "2025" },
+    { src: "/cabinetsLogo/Devoria.svg", alt: "Devoria", name: "Devoria", year: "2025" },
   ];
   return (
     <div id="journey" className="bg-[#10316B] w-full  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
@@ -421,13 +433,23 @@ function Sejarah() {
           <div className=" xl:w-[1220px] lg:w-[1312px] lg:flex hidden items-center justify-between ">
             {cabinets.map((cabinet, index) => {
               return (
-                <div key={index} className="flex flex-col items-center justify-center gap-[64px] z-10">
+                // ntar animasiin elemennya aja
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
+                  transition={{ duration, delay }}
+                  variants={animations}
+                  key={index}
+                  className="flex flex-col items-center justify-center gap-[64px] z-10"
+                >
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px] w-full" />
+
                   <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-semibold text-2xl">{cabinet.name}</p>
                     <h1 className="text-[#4B4B4B] font-normal">{cabinet.year}</h1>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

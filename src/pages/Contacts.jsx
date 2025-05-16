@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AnimatedText from "../components/AnimatedText";
 import AnimatedLongText from "../components/AnimatedLongText";
+import AnimatedImage from "../components/AnimatedImage";
 
 export const Contacts = () => {
   return (
@@ -17,7 +18,7 @@ export const Contacts = () => {
         </Link>
       </div>
       <div className=" flex-row items-end h-full flex">
-        <img src="/himarpl/Maskot2.svg" alt="maskot" className="lg:w-[580px] w-[240px]" />
+        <AnimatedImage src="/himarpl/Maskot2.svg" alt="maskot" className="lg:w-[580px] w-[240px]" animationType="slideRight" />
       </div>
 
       <div className="flex flex-col justify-center lg:pt-[210px] h-full gap-10">

@@ -129,7 +129,7 @@ export default function MainLayout() {
                 </NavLink>
               ))}
               <div className="relative " ref={dropdownRef}>
-                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
                   About Us
                   <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
                 </div>
@@ -140,6 +140,9 @@ export default function MainLayout() {
                     </NavLink>
                     <NavLink to="/dp" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
                       DP
+                    </NavLink>
+                    <NavLink to="/logo" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                      Logo
                     </NavLink>
                   </div>
                 )}
@@ -188,7 +191,7 @@ export default function MainLayout() {
             ))}
 
             <div className="relative " ref={dropdownRef}>
-              <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+              <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
                 About Us
                 <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
               </div>
@@ -199,6 +202,9 @@ export default function MainLayout() {
                   </NavLink>
                   <NavLink to="/dp" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
                     DP
+                  </NavLink>
+                  <NavLink to="/logo" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                    Logo
                   </NavLink>
                 </div>
               )}
@@ -226,9 +232,9 @@ export default function MainLayout() {
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-row gap-4">
                     {sosmedLinks.map((link, i) => (
-                      <div key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
+                      <NavLink to={link.to} key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
                         <Icon icon={link.icon} className="text-black w-4 h-4 hover:text-gray-500 transition-all duration-150" />
-                      </div>
+                      </NavLink>
                     ))}
                   </div>
 

@@ -6,7 +6,53 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Dedication() {
-  const initialDedikasiItems = [
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const allDedikasiItems = [
+    {
+      img: "/dedications/dedikasi1.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#FF4B4B",
+    },
+    {
+      img: "/dedications/dedikasi 3.png",
+      title: "RPL Peduli",
+      bgColor: "#FF7F11",
+    },
+    {
+      img: "/dedications/dedikasi2.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#5573FF",
+    },
+    {
+      img: "/dedications/dedikasi1.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#FF4B4B",
+    },
+    {
+      img: "/dedications/dedikasi 3.png",
+      title: "RPL Peduli",
+      bgColor: "#FF7F11",
+    },
+    {
+      img: "/dedications/dedikasi2.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#5573FF",
+    },
+    {
+      img: "/dedications/dedikasi1.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#FF4B4B",
+    },
+    {
+      img: "/dedications/dedikasi 3.png",
+      title: "RPL Peduli",
+      bgColor: "#FF7F11",
+    },
+    {
+      img: "/dedications/dedikasi2.jpg",
+      title: "RPL Berbagi",
+      bgColor: "#5573FF",
+    },
     {
       img: "/dedications/dedikasi1.jpg",
       title: "RPL Berbagi",
@@ -24,17 +70,23 @@ export default function Dedication() {
     },
   ];
 
-  const [dedikasiItems, setDedikasiItems] = useState(initialDedikasiItems);
-  const [hasMore, setHasMore] = useState(true);
+  const [displayedItems, setDisplayedItems] = useState([]);
+  const [itemsToShow, setItemsToShow] = useState(0);
+  const itemsPerLoad = 3;
+  useEffect(() => {
+    setItemsToShow(3);
+  }, []);
 
+  useEffect(() => {
+    setDisplayedItems(allDedikasiItems.slice(0, itemsToShow));
+  }, [itemsToShow, allDedikasiItems]);
   const fetchMoreData = () => {
-    if (dedikasiItems.length >= 30) {
-      setHasMore(false);
+    if (itemsToShow >= allDedikasiItems.length) {
       return;
     }
 
     setTimeout(() => {
-      setDedikasiItems((prev) => [...prev, ...initialDedikasiItems]);
+      setItemsToShow((prev) => Math.min(prev + itemsPerLoad, allDedikasiItems.length));
     }, 100);
   };
 
@@ -58,14 +110,15 @@ export default function Dedication() {
       </div>
 
       <InfiniteScroll
-        dataLength={dedikasiItems.length}
+        dataLength={displayedItems.length}
         next={fetchMoreData}
-        hasMore={hasMore}
+        hasMore={itemsToShow < allDedikasiItems.length}
         loader={<h4 className="text-white">Loading...</h4>}
-        className="flex   flex-wrap items-center lg:gap-9 xl:gap-2 gap-4 justify-center lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10   overflow-y-scroll"
+        className="flex flex-wrap items-center lg:gap-9 xl:gap-2 gap-4 justify-center lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10 overflow-y-scroll"
         scrollableTarget="scrollableDiv"
+        endMessage={<h4 className="text-white">You have seen it all</h4>}
       >
-        {dedikasiItems.map((item, index) => (
+        {displayedItems.map((item, index) => (
           <CardDedication key={index} index={index} img={item.img} bgColor={item.bgColor} title={item.title} />
         ))}
       </InfiniteScroll>
