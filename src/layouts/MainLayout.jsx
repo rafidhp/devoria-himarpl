@@ -5,10 +5,10 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function MainLayout() {
   const links = [
-    { to: "/dedikasi", path: "dedikasi", name: "Dedikasi" },
+    { to: "/dedication", path: "dedication", name: "Dedikasi" },
     { to: "/berita", path: "berita", name: "Berita" },
     { to: "/struktur", path: "struktur", name: "Struktur Organisasi" },
-    { to: "/contact", path: "contacts", name: "Contacts" },
+    { to: "/contact", path: "contact", name: "Contacts" },
   ];
 
   const footerLinks = [
@@ -92,7 +92,7 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
+    <div id="scrollableDiv" className="min-h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
       <div className={`fixed top-0 left-0 w-full h-full z-[60] transform-all duration-600 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`} onClick={() => setOpenSidebar(false)}>
         <div
           ref={sideBarRef}
@@ -108,7 +108,7 @@ export default function MainLayout() {
                 }
               }}
             >
-              <img src="/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
+              <img src="/himarpl/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
             </NavLink>
 
             <nav className="flex flex-col gap-4">
@@ -129,7 +129,7 @@ export default function MainLayout() {
                 </NavLink>
               ))}
               <div className="relative " ref={dropdownRef}>
-                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
                   About Us
                   <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
                 </div>
@@ -140,6 +140,9 @@ export default function MainLayout() {
                     </NavLink>
                     <NavLink to="/dp" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
                       DP
+                    </NavLink>
+                    <NavLink to="/logo" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                      Logo
                     </NavLink>
                   </div>
                 )}
@@ -166,7 +169,7 @@ export default function MainLayout() {
               }
             }}
           >
-            <img src="/logo hima.png" alt="HIMARPL" className="lg:w-[240px] w-[140px] max-h-[70px]" />
+            <img src="/himarpl/logo hima.png" alt="HIMARPL" className="lg:w-[240px] w-[140px] max-h-[70px]" />
           </NavLink>
 
           <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
@@ -188,7 +191,7 @@ export default function MainLayout() {
             ))}
 
             <div className="relative " ref={dropdownRef}>
-              <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+              <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
                 About Us
                 <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
               </div>
@@ -200,6 +203,9 @@ export default function MainLayout() {
                   <NavLink to="/dp" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
                     DP
                   </NavLink>
+                  <NavLink to="/logo" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                    Logo
+                  </NavLink>
                 </div>
               )}
             </div>
@@ -210,7 +216,7 @@ export default function MainLayout() {
         <footer className="w-full bg-[#232323] lg:pb-5 pb-4 lg:pt-14 pt-5 lg:px-[72px] px-4 flex flex-col">
           <div className="flex flex-row items-center justify-between border-b border-[#B2B2B2] pb-5">
             <div className="flex flex-col items-start justify-between lg:h-[194px]">
-              <img src="/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
+              <img src="/himarpl/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
               <div className="lg:w-[416px] w-[343px]">
                 <p className="text-white lg:text-base/[24px] text-[12px]/[24px]">Empowering you with knowledge to make informed health decisions. (Dummy) </p>
               </div>
@@ -226,9 +232,9 @@ export default function MainLayout() {
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-row gap-4">
                     {sosmedLinks.map((link, i) => (
-                      <div key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
+                      <NavLink to={link.to} key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
                         <Icon icon={link.icon} className="text-black w-4 h-4 hover:text-gray-500 transition-all duration-150" />
-                      </div>
+                      </NavLink>
                     ))}
                   </div>
 

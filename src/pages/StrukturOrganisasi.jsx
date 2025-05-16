@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import AnimatedText from "../components/AnimatedText";
 import AnimatedLongText from "../components/AnimatedLongText";
+import AnimatedImage from "../components/AnimatedImage";
 
 export const StrukturOrganisasi = () => {
   const [activeSection, setActiveSection] = useState("be");
@@ -46,8 +47,8 @@ export const StrukturOrganisasi = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        {activeSection === "be" && <img src="/be.svg" alt="Badan Eksekutif" className="lg:w-[1075px] w-[343px]" />}
-        {activeSection === "dp" && <img src="/dp.svg" alt="Dewan Perwakilan" className="lg:w-[440px] w-[343px]" />}
+        {activeSection === "be" && <AnimatedImage src="/structures/be.svg" alt="Badan Eksekutif" className="lg:w-[1075px] w-[343px]" animationType="slideUp" />}
+        {activeSection === "dp" && <AnimatedImage src="/structures/dp.svg" alt="Dewan Perwakilan" className="lg:w-[440px] w-[343px]" animationType="slideUp" />}
       </div>
 
       <div className="bg-[#E8E8E8] lg:rounded-3xl rounded-[6.55px] lg:px-6 lg:py-4 lg:mt-14 mt-6 flex items-center justify-between p-1 lg:gap-4 gap-1">

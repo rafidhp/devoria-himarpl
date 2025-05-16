@@ -5,7 +5,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -19,7 +19,7 @@ const AnimatedLongText = ({ text, className = "" }) => {
   const parts = text.split(/(<b>.*?<\/b>)/g);
 
   return (
-    <motion.p variants={container} initial="hidden" animate="show" className={className}>
+    <motion.p variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }} className={className}>
       {parts.map((part, index) => {
         if (part.startsWith("<b>")) {
           const content = part.replace(/<\/?b>/g, "");

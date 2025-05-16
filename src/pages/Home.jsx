@@ -9,9 +9,21 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Marquee from "react-fast-marquee";
 import { Contacts } from "./Contacts";
 import AnimatedText from "../components/AnimatedText";
-import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedText2 from "../components/AnimatedText2";
+import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
+import AnimatedImage from "../components/AnimatedImage";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+
+const duration = 0.6;
+const delay = 0;
+const threshold = 0.1;
+const animations = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
 export default function Home() {
   const textScrollDown = {
     writingMode: "vertical-rl",
@@ -53,9 +65,9 @@ export default function Home() {
           </div>
 
           <div className="lg:mt-8 mt-6 relative lg:mb-[75px] mb-[48px]">
-            <img src="/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="lg:w-[1220px] lg:mx-[110px] mx-4 w-[343px] rounded-3xl z-10" />
+            <AnimatedImage src="/himarpl/fullteam.jpeg" alt="Kabinet Devoria" loading="lazy" className="lg:w-[1220px] lg:mx-[110px] mx-4 w-[343px] rounded-3xl z-10" />
 
-            <img src="/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] xl:left-[120px] top-[157px] left-[33px] z-20" />
+            <img src="/himarpl/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] xl:left-[120px] top-[157px] left-[33px] z-20" />
             <AnimatedText style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold" text="scrolldown" />
             {/* <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold">
               scrolldown
@@ -124,7 +136,7 @@ export default function Home() {
           </p>
         </div>
 
-        <img src="/Group 247.svg" alt="HIMARPL" className="xl:w-[618px] lg:w-[718px] w-[164px]" />
+        <img src="/himarpl/Group 247.svg" alt="HIMARPL" className="xl:w-[618px] lg:w-[718px] w-[164px]" />
 
         <Marquee className="lg:!hidden w-full flex flex-row justify-between  items-center !overflow-visible" direction="right">
           {[0, 1, 2, 3].map((i) => (
@@ -180,11 +192,11 @@ export default function Home() {
 
 function Sponsor() {
   const sponsors = [
-    { src: "/dicoding.svg", alt: "Dicoding", maxWidth: "178px", minWidth: "56px" },
-    { src: "/kahf.svg", alt: "Kahf", maxWidth: "135px", minWidth: "56px" },
-    { src: "/allobank.svg", alt: "Allobank", maxWidth: "163px", minWidth: "56px" },
-    { src: "/menyala.svg", alt: "Me.nyala", maxWidth: "130px", minWidth: "56px" },
-    { src: "/ruru.svg", alt: "Ruru snack", maxWidth: "133px", minWidth: "56px" },
+    { src: "/sponsors/dicoding.svg", alt: "Dicoding", maxWidth: "178px", minWidth: "56px" },
+    { src: "/sponsors/kahf.svg", alt: "Kahf", maxWidth: "135px", minWidth: "56px" },
+    { src: "/sponsors/allobank.svg", alt: "Allobank", maxWidth: "163px", minWidth: "56px" },
+    { src: "/sponsors/menyala.svg", alt: "Me.nyala", maxWidth: "130px", minWidth: "56px" },
+    { src: "/sponsors/ruru.svg", alt: "Ruru snack", maxWidth: "133px", minWidth: "56px" },
   ];
   return (
     <div id="sponsor" className="bg-[#FFE867] w-full z-20  py-[20px]">
@@ -207,17 +219,17 @@ function Sponsor() {
 function Dedication() {
   const dedikasiItems = [
     {
-      img: "/dedikasi1.jpg",
+      img: "/dedications/dedikasi1.jpg",
       title: "RPL Berbagi",
       bgColor: "#FF4B4B",
     },
     {
-      img: "/dedikasi 3.png",
+      img: "/dedications/dedikasi 3.png",
       title: "RPL Peduli",
       bgColor: "#FF7F11",
     },
     {
-      img: "/dedikasi2.jpg",
+      img: "/dedications/dedikasi2.jpg",
       title: "RPL Berbagi",
       bgColor: "#5573FF",
     },
@@ -225,9 +237,9 @@ function Dedication() {
 
   return (
     <div id="dedikasi" className="bg-[#10316B]  w-full lg:pt-[123px] pt-[68px] z-10 relative flex flex-col justify-center items-center dedikasi lg:pb-[96px] pb-[84px]">
-      <img src="/Vector 67.svg" alt="vector" className="lg:w-[237px] w-[190px] absolute -top-[90px] right-0 -z-10" />
-      <img src="/Group 245.svg" alt="pixel" className="lg:w-[672px] w-[300px] absolute top-[280px] -z-10" />
-      <img src="/Vector 50.svg" alt="vector" className="lg:w-[306px] w-[250px] absolute bottom-0 left-0 -z-10" />
+      <img src="/ornaments/Vector 67.svg" alt="vector" className="lg:w-[237px] w-[190px] absolute -top-[90px] right-0 -z-10" />
+      <img src="/ornaments/Group 245.svg" alt="pixel" className="lg:w-[672px] w-[300px] absolute top-[280px] -z-10" />
+      <img src="/ornaments/Vector 50.svg" alt="vector" className="lg:w-[306px] w-[250px] absolute bottom-0 left-0 -z-10" />
       <div className="flex flex-col justify-center items-center lg:gap-8 gap-6 lg:w-[619px] w-[343px]">
         <AnimatedLongText2 text="Dedikasi Kami" className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px] z-10" />
         {/* <h1 className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px]">Dedikasi Kami</h1> */}
@@ -266,7 +278,7 @@ function Dedication() {
         ))}
       </Swiper>
       <div className="bg-[#ffe867] lg:w-[160px] w-[343px] h-14 flex justify-center items-center py-4 px-6 rounded-[64px] lg:mt-20 mt-9 z-10">
-        <Link to="/dedikasi" className="text-[#806D00] text-[20px]/[24px] ">
+        <Link to="/dedication" className="text-[#806D00] text-[20px]/[24px] ">
           <h4 className="bg-transparent w-[160px] h-14 rounded-[64px] py-4 px-6">Lihat Semua</h4>
         </Link>
       </div>
@@ -284,11 +296,11 @@ function Berita() {
           </Link>
         </div>
 
-        <img src="/berita.jpg" alt="Berita" className="lg:w-[576px] lg:h-[612px] w-[343px] h-[200px] object-cover rounded-3xl" />
+        <AnimatedImage src="/news/berita.jpg" alt="Berita" className="lg:w-[576px] lg:h-[612px] w-[343px] h-[200px] object-cover rounded-3xl" animationType="slideRight" />
 
         <div className="flex flex-col justify-center lg:w-[580px] w-[343px]">
-          <img src="/Group 241.svg" alt="pixel" className="absolute max-w-[72px] lg:top-0 top-40 right-0" />
-          <img src="/Group 252.svg" alt="pixel" className="absolute max-w-[303px] bottom-0 right-5 " />
+          <img src="/ornaments/Group 241.svg" alt="pixel" className="absolute max-w-[72px] lg:top-0 top-40 right-0" />
+          <img src="/ornaments/Group 252.svg" alt="pixel" className="absolute max-w-[303px] bottom-0 right-5 " />
 
           <AnimatedLongText className="lg:text-[64px]/[72px] text-[40px] !min-w-[343px] font-semibold" text="Akses Berita Aktual RPL di Sini." />
 
@@ -314,8 +326,8 @@ function Berita() {
 function VisiMisi() {
   return (
     <div id="visiMisi" className="bg-[#10316B] w-full  lg:pt-[68px] pt-[42px] gap-[68px] flex flex-col justify-center items-center relative z-0">
-      <img src="/Group 251.svg" alt="pixel" className="lg:w-[181px] w-[64px] absolute lg:-top-7 top-0 right-0 -z-20" />
-      <img src="/Group 250.svg" alt="pixel" className="lg:w-[207px] w-[80px] absolute bottom-0 left-0 -z-20" />
+      <img src="/ornaments/Group 251.svg" alt="pixel" className="lg:w-[181px] w-[64px] absolute lg:-top-7 top-0 right-0 -z-20" />
+      <img src="/ornaments/Group 250.svg" alt="pixel" className="lg:w-[207px] w-[80px] absolute bottom-0 left-0 -z-20" />
 
       <div className="flex flex-col lg:rounded-3xl pb-4 rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[300px]  lg:border-8 border-2 border-[#FF4B4B]">
         <div className="flex flex-row items-center justify-between bg-[#FF4B4B] lg:gap-96 lg:rounded-b-3xl rounded-b-lg rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
@@ -371,12 +383,12 @@ function Sejarah() {
     color: "transparent",
   };
   const cabinets = [
-    { src: "/inisiator.png", alt: "Inisiator", name: "Inisiator", year: "2020" },
-    { src: "/inspira.png", alt: "Inspira", name: "Inspira", year: "2021" },
-    { src: "/explora.png", alt: "Explora", name: "Explora", year: "2022" },
-    { src: "/manifest.png", alt: "Manifest", name: "Manifest", year: "2023" },
-    { src: "/ascendia.png", alt: "Ascendia", name: "Ascendia", year: "2024" },
-    { src: "/devoria.png", alt: "Devoria", name: "Devoria", year: "2025" },
+    { src: "/cabinetsLogo/inisiator.png", alt: "Inisiator", name: "Inisiator", year: "2020" },
+    { src: "/cabinetsLogo/inspira.png", alt: "Inspira", name: "Inspira", year: "2021" },
+    { src: "/cabinetsLogo/explora.png", alt: "Explora", name: "Explora", year: "2022" },
+    { src: "/cabinetsLogo/manifest.png", alt: "Manifest", name: "Manifest", year: "2023" },
+    { src: "/cabinetsLogo/ascendia.png", alt: "Ascendia", name: "Ascendia", year: "2024" },
+    { src: "/cabinetsLogo/Devoria.svg", alt: "Devoria", name: "Devoria", year: "2025" },
   ];
   return (
     <div id="journey" className="bg-[#10316B] w-full  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
@@ -384,8 +396,8 @@ function Sejarah() {
       {/* <h1 className="text-white lg:text-8xl text-[64px]/[72px] text-center">Perjalanan HIMARPL</h1> */}
 
       <div className="w-full h-[600px] flex flex-col items-center justify-center relative bg-[#0B409C] gap-14">
-        <img src="/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] lg:-top-28 -top-11 w-[88px] left-0" />
-        <img src="/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] w-[88px] lg:-top-28 -top-11  right-0 scale-x-[-1]" />
+        <img src="/ornaments/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] lg:-top-28 -top-11 w-[88px] left-0" />
+        <img src="/ornaments/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] w-[88px] lg:-top-28 -top-11  right-0 scale-x-[-1]" />
 
         <div className="bg-[#FFE867] h-2 w-[1084px]"></div>
         <div className="bg-[#F2F7FF] w-full h-[400px] flex items-center justify-center relative">
@@ -421,13 +433,23 @@ function Sejarah() {
           <div className=" xl:w-[1220px] lg:w-[1312px] lg:flex hidden items-center justify-between ">
             {cabinets.map((cabinet, index) => {
               return (
-                <div key={index} className="flex flex-col items-center justify-center gap-[64px] z-10">
+                // ntar animasiin elemennya aja
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
+                  transition={{ duration, delay }}
+                  variants={animations}
+                  key={index}
+                  className="flex flex-col items-center justify-center gap-[64px] z-10"
+                >
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px] w-full" />
+
                   <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-semibold text-2xl">{cabinet.name}</p>
                     <h1 className="text-[#4B4B4B] font-normal">{cabinet.year}</h1>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

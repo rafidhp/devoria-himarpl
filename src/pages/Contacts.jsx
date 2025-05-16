@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AnimatedText from "../components/AnimatedText";
 import AnimatedLongText from "../components/AnimatedLongText";
+import AnimatedImage from "../components/AnimatedImage";
 
 export const Contacts = () => {
   return (
     <div
       id="contact"
-      className={`bg-[url(/rectangle498.png)] w-full lg:pt-[110px] pt-10 px-4 bg-cover bg-center flex lg:flex-row flex-col-reverse lg:items-start items-center lg:gap-4 gap-6 justify-center lg:pb-0 pb-[64px] ${
+      className={`bg-[url(/ornaments/rectangle498.png)] w-full lg:pt-[110px] pt-10 px-4 bg-cover bg-center flex lg:flex-row flex-col-reverse lg:items-start items-center lg:gap-4 gap-6 justify-center lg:pb-0 pb-[64px] ${
         location.pathname === "/contact" ? "-mt-[135px]" : "mt-0"
       }`}
     >
@@ -16,15 +17,12 @@ export const Contacts = () => {
           <p className="font-semibold text-white">Pelajari Selengkapnya</p>
         </Link>
       </div>
-      <div className=" flex-row items-end h-full lg:flex hidden">
-        <img src="/Maskot.svg" alt="maskot" className="max-w-[580px] " />
-      </div>
-      <div className=" flex-row items-end h-full lg:hidden flex">
-        <img src="/Maskot2.svg" alt="maskot" className="w-[240px] " />
+      <div className=" flex-row items-end h-full flex">
+        <AnimatedImage src="/himarpl/Maskot2.svg" alt="maskot" className="lg:w-[580px] w-[240px]" animationType="slideRight" />
       </div>
 
       <div className="flex flex-col justify-center lg:pt-[210px] h-full gap-10">
-        <div className="flex flex-col gap-4 lg:max-w-[760px] w-[343px]">
+        <div className="flex flex-col gap-4 lg:w-[760px] w-[343px]">
           <AnimatedLongText className="font-semibold lg:text-8xl text-[40px] flex  lg:pt-0 pt-[50px]" text="Hubungi Kami" />
           {/* <p className="font-semibold lg:text-8xl text-[64px] flex  lg:pt-0 pt-[110px]">Hubungi Kami</p> */}
           {/* <p className="font-semibold lg:hidden text-[64px] ">Hubungi Kami</p> */}
