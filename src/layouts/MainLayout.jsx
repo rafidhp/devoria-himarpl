@@ -5,10 +5,10 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function MainLayout() {
   const links = [
-    { to: "/dedikasi", path: "dedikasi", name: "Dedikasi" },
+    { to: "/dedication", path: "dedication", name: "Dedikasi" },
     { to: "/berita", path: "berita", name: "Berita" },
     { to: "/struktur", path: "struktur", name: "Struktur Organisasi" },
-    { to: "/contact", path: "contacts", name: "Contacts" },
+    { to: "/contact", path: "contact", name: "Contacts" },
   ];
 
   const footerLinks = [
@@ -92,7 +92,7 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
+    <div id="scrollableDiv" className="min-h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
       <div className={`fixed top-0 left-0 w-full h-full z-[60] transform-all duration-600 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`} onClick={() => setOpenSidebar(false)}>
         <div
           ref={sideBarRef}
@@ -108,7 +108,7 @@ export default function MainLayout() {
                 }
               }}
             >
-              <img src="/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
+              <img src="/himarpl/logo hima.png" alt="HIMARPL" className="w-[200px] h-auto" />
             </NavLink>
 
             <nav className="flex flex-col gap-4">
@@ -166,7 +166,7 @@ export default function MainLayout() {
               }
             }}
           >
-            <img src="/logo hima.png" alt="HIMARPL" className="lg:w-[240px] w-[140px] max-h-[70px]" />
+            <img src="/himarpl/logo hima.png" alt="HIMARPL" className="lg:w-[240px] w-[140px] max-h-[70px]" />
           </NavLink>
 
           <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
@@ -210,7 +210,7 @@ export default function MainLayout() {
         <footer className="w-full bg-[#232323] lg:pb-5 pb-4 lg:pt-14 pt-5 lg:px-[72px] px-4 flex flex-col">
           <div className="flex flex-row items-center justify-between border-b border-[#B2B2B2] pb-5">
             <div className="flex flex-col items-start justify-between lg:h-[194px]">
-              <img src="/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
+              <img src="/himarpl/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
               <div className="lg:w-[416px] w-[343px]">
                 <p className="text-white lg:text-base/[24px] text-[12px]/[24px]">Empowering you with knowledge to make informed health decisions. (Dummy) </p>
               </div>

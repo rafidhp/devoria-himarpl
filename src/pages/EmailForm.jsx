@@ -26,7 +26,7 @@ const EmailForm = () => {
       {success && (
         <div className="h-screen overflow-y-scroll z-50">
           <div className="absolute z-30 bg-white w-full h-screen">
-            <img src="/Vector.svg" alt="vector" className="absolute lg:-top-36 top-24 w-full -z-10" />
+            <img src="/ornaments/Vector.svg" alt="vector" className="absolute lg:-top-36 top-24 w-full -z-10" />
             <p className="font-semibold lg:text-2xl text-[#AFAFAF] text-center lg:mt-[96px] mt-[80px]">KEEP STRUGGLE, STAY TOGETHER</p>
 
             <div className="flex items-center rounded-full w-fit bg-[#EAF6EB] lg:p-10 p-[14px] mx-auto mt-[50px] z-50">
@@ -49,7 +49,7 @@ const EmailForm = () => {
 
       <div className="h-screen overflow-y-scroll relative">
         <form ref={form} onSubmit={sendEmail} className="lg:mx-[110px] lg:my-[68px] my-6 mx-4 h-fit relative">
-          <img src="/devoria.png" alt="Devoria" className="absolute top-0 right-0 w-[362px] opacity-[12%] -z-10" />
+          <img src="/cabinetsLogo/devoria.png" alt="Devoria" className="absolute top-0 right-0 w-[362px] opacity-[12%] -z-10" />
           <div className="flex flex-col lg:gap-10 gap-[85px]">
             <div className="flex gap-4 items-center cursor-pointer hover:bg-gray-100 px-4 py-2 rounded-2xl w-fit" onClick={() => (window.location.href = "/contact")}>
               <Icon icon="mingcute:left-line" className="lg:w-10 lg:h-10 w-6 h-6" />

@@ -46,8 +46,8 @@ export const StrukturOrganisasi = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        {activeSection === "be" && <img src="/be.svg" alt="Badan Eksekutif" className="lg:w-[1075px] w-[343px]" />}
-        {activeSection === "dp" && <img src="/dp.svg" alt="Dewan Perwakilan" className="lg:w-[440px] w-[343px]" />}
+        {activeSection === "be" && <img src="/structures/be.svg" alt="Badan Eksekutif" className="lg:w-[1075px] w-[343px]" />}
+        {activeSection === "dp" && <img src="/structures/dp.svg" alt="Dewan Perwakilan" className="lg:w-[440px] w-[343px]" />}
       </div>
 
       <div className="bg-[#E8E8E8] lg:rounded-3xl rounded-[6.55px] lg:px-6 lg:py-4 lg:mt-14 mt-6 flex items-center justify-between p-1 lg:gap-4 gap-1">

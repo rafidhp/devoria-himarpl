@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import { StrukturOrganisasi } from "./pages/StrukturOrganisasi";
 import { Contacts } from "./pages/Contacts";
 import EmailForm from "./pages/EmailForm";
+import Dedication from "./pages/Dedications";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="struktur" element={<StrukturOrganisasi />} />
         <Route path="contact" element={<Contacts />} />
+        <Route path="dedication" element={<Dedication />} />
         <Route path="*" element={<h1>Under Construction :D</h1>} />
       </Route>
       <Route path="/contact/submit" element={<EmailForm />}></Route>
