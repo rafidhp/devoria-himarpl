@@ -2,73 +2,75 @@ import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import { Link } from "react-router-dom";
 import { CardDedication } from "../components/CardDedication";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Dedication() {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const allDedikasiItems = [
-    {
-      img: "/dedications/dedikasi1.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#FF4B4B",
-    },
-    {
-      img: "/dedications/dedikasi 3.png",
-      title: "RPL Peduli",
-      bgColor: "#FF7F11",
-    },
-    {
-      img: "/dedications/dedikasi2.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#5573FF",
-    },
-    {
-      img: "/dedications/dedikasi1.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#FF4B4B",
-    },
-    {
-      img: "/dedications/dedikasi 3.png",
-      title: "RPL Peduli",
-      bgColor: "#FF7F11",
-    },
-    {
-      img: "/dedications/dedikasi2.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#5573FF",
-    },
-    {
-      img: "/dedications/dedikasi1.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#FF4B4B",
-    },
-    {
-      img: "/dedications/dedikasi 3.png",
-      title: "RPL Peduli",
-      bgColor: "#FF7F11",
-    },
-    {
-      img: "/dedications/dedikasi2.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#5573FF",
-    },
-    {
-      img: "/dedications/dedikasi1.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#FF4B4B",
-    },
-    {
-      img: "/dedications/dedikasi 3.png",
-      title: "RPL Peduli",
-      bgColor: "#FF7F11",
-    },
-    {
-      img: "/dedications/dedikasi2.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#5573FF",
-    },
-  ];
+  const allDedikasiItems = useMemo(
+    () => [
+      {
+        img: "/dedications/dedikasi1.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#FF4B4B",
+      },
+      {
+        img: "/dedications/dedikasi 3.png",
+        title: "RPL Peduli",
+        bgColor: "#FF7F11",
+      },
+      {
+        img: "/dedications/dedikasi2.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#5573FF",
+      },
+      {
+        img: "/dedications/dedikasi1.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#FF4B4B",
+      },
+      {
+        img: "/dedications/dedikasi 3.png",
+        title: "RPL Peduli",
+        bgColor: "#FF7F11",
+      },
+      {
+        img: "/dedications/dedikasi2.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#5573FF",
+      },
+      {
+        img: "/dedications/dedikasi1.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#FF4B4B",
+      },
+      {
+        img: "/dedications/dedikasi 3.png",
+        title: "RPL Peduli",
+        bgColor: "#FF7F11",
+      },
+      {
+        img: "/dedications/dedikasi2.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#5573FF",
+      },
+      {
+        img: "/dedications/dedikasi1.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#FF4B4B",
+      },
+      {
+        img: "/dedications/dedikasi 3.png",
+        title: "RPL Peduli",
+        bgColor: "#FF7F11",
+      },
+      {
+        img: "/dedications/dedikasi2.jpg",
+        title: "RPL Berbagi",
+        bgColor: "#5573FF",
+      },
+    ],
+    []
+  );
 
   const [displayedItems, setDisplayedItems] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(0);
@@ -79,7 +81,7 @@ export default function Dedication() {
 
   useEffect(() => {
     setDisplayedItems(allDedikasiItems.slice(0, itemsToShow));
-  }, [itemsToShow, allDedikasiItems]);
+  }, [itemsToShow]);
   const fetchMoreData = () => {
     if (itemsToShow >= allDedikasiItems.length) {
       return;
@@ -92,7 +94,9 @@ export default function Dedication() {
 
   return (
     <div
-      className={`bg-[#10316B] w-full z-10 relative flex flex-col justify-center items-center lg:pb-[96px] pb-[84px] ${location.pathname === "/dedication" ? "-mt-[140px] lg:pt-[240px] pt-[168px]" : "mt-0 lg:pt-[123px] pt-[68px]"}`}
+      className={`bg-[#10316B] w-full overflow-y-clip z-10 relative flex flex-col justify-center items-center lg:pb-[96px] pb-[84px] ${
+        location.pathname === "/dedication" ? "-mt-[140px] lg:pt-[240px] pt-[168px]" : "mt-0 lg:pt-[123px] pt-[68px]"
+      }`}
       id="scrollableDiv"
     >
       <img src="/ornaments/Vector 67.svg" alt="vector" className="lg:w-[237px] w-[190px] absolute -top-[90px] right-0 -z-10" />
