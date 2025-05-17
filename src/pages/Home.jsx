@@ -83,11 +83,9 @@ export default function Home() {
       <Sponsor />
       <Dedication />
 
-      <Marquee className="bg-black w-full gap-4 flex justify-center items-center flex-row">
+      <Marquee className="bg-black w-full py-4 ">
         {[0, 1, 2, 3].map((i) => (
-          <p key={i} style={i % 2 === 1 ? textStyle1 : {}} className="lg:text-8xl/tight text-[64px] font-semibold text-white">
-            #NEWS
-          </p>
+          <img src={i % 2 === 1 ? "/ornaments/NEWS.svg" : "/ornaments/NEWS (1).svg"} alt="news" className="lg:w-[540px] w-[270px] lg:mr-4 mr-2" key={i} />
         ))}
       </Marquee>
 
@@ -329,35 +327,49 @@ function VisiMisi() {
       <img src="/ornaments/Group 251.svg" alt="pixel" className="lg:w-[181px] w-[64px] absolute lg:-top-7 top-0 right-0 -z-20" />
       <img src="/ornaments/Group 250.svg" alt="pixel" className="lg:w-[207px] w-[80px] absolute bottom-0 left-0 -z-20" />
 
-      <div className="flex flex-col lg:rounded-3xl pb-4 rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[300px]  lg:border-8 border-2 border-[#FF4B4B]">
-        <div className="flex flex-row items-center justify-between bg-[#FF4B4B] lg:gap-96 lg:rounded-b-3xl rounded-b-lg rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
-          <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Visi" />
-          {/* <h4 className="text-white lg:text-[40px] text-base">Visi</h4> */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
+        transition={{ duration, delay }}
+        variants={animations}
+        className="flex flex-col lg:rounded-3xl pb-4 rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[300px]  lg:border-8 border-4 border-[#FF4B4B]"
+      >
+        <div className="flex flex-row items-center justify-between bg-[#FF4B4B] lg:gap-96  rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
+          {/* <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Visi" /> */}
+          <h4 className="text-white lg:text-[40px] text-base">Visi</h4>
 
           <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#B50000] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
           </div>
         </div>
 
-        <AnimatedLongText
+        {/* <AnimatedLongText
           className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]"
           text="Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri."
-        />
-        {/* <p className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]">
+        /> */}
+        <p className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]">
           Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri.
-        </p> */}
-      </div>
-      <div className="flex flex-col lg:rounded-3xl rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[460px] lg:pb-5 pb-4 lg:border-8 border-2 border-[#5573FF] lg:mb-[96px] mb-10 bg-[#10316B]">
-        <div className="flex flex-row items-center justify-between bg-[#5573FF] lg:gap-96 lg:rounded-b-3xl rounded-b-lg rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
-          {/* <h4 className="text-white lg:text-[40px] text-base">Misi</h4> */}
-          <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Misi" />
+        </p>
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
+        transition={{ duration, delay }}
+        variants={animations}
+        className="flex flex-col lg:rounded-3xl rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[460px] lg:pb-5 pb-4 lg:border-8 border-4 border-[#5573FF] lg:mb-[96px] mb-10 bg-[#10316B]"
+      >
+        <div className="flex flex-row items-center justify-between bg-[#5573FF] lg:gap-96  rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
+          <h4 className="text-white lg:text-[40px] text-base">Misi</h4>
+          {/* <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Misi" /> */}
 
           <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
-            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-[#001DA7] rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+            <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
           </div>
         </div>
 
@@ -369,10 +381,12 @@ function VisiMisi() {
             "• Meningkatkan kolaborasi dengan berbagai pihak, termasuk institusi pendidikan, industri, dan masyarakat.",
             "• Melaksanakan kegiatan sosial dan pengabdian kepada masyarakat yang relevan dengan bidang keilmuan.",
           ].map((i, idx) => (
-            <AnimatedLongText key={idx} className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6" text={i} />
+            <p key={idx} className="text-white lg:text-[24px]/[40px] text-base/[40px] mx-6">
+              {i}
+            </p>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </div>
   );
 }
