@@ -33,7 +33,7 @@ const AnimatedImage = ({
   };
 
   return (
-    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }} transition={{ duration, delay }} variants={animations[animationType]}>
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "0px 0px -100px 0px", amount: threshold }} transition={{ duration, delay }} variants={animations[animationType]}>
       <img src={src} alt={alt} className={className} loading="lazy" />
     </motion.div>
   );
