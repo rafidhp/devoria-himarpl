@@ -7,28 +7,23 @@ import { CardKepengurusan } from "../components/CardKepengurusan";
 
 export const Departments = () => {
   const location = useLocation();
-  const [type, setType] = useState("be");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [kepengurusanData, setKepengurusanData] = useState([]);
 
-  useEffect(() => {
-    // Set type based on the current path
-    if (location.pathname === "/be") {
-      setType("be");
-    } else if (location.pathname === "/dp") {
-      setType("dp");
-    }
-  }, [location.pathname]);
-
+  const path = location.pathname;
+  const type = path === "/be" ? "be" : "dp";
   useEffect(() => {
     const fetchKepengurusanData = async () => {
+      const endpoint = `/api/api/v1/departments?type=${type}&year=2024`;
+
       try {
         // Use the proxy path instead of the full URL
-        const endpoint = type == "be" ? "/api/api/v1/departments?type=be&year=2024" : "/api/api/v1/departments?type=dp&year=2024";
         const response = await axios.get(endpoint);
+        console.log(response.data.data);
+
         const data = response.data;
-        setKepengurusanData(data);
+        setKepengurusanData(data.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -88,7 +83,7 @@ export const Departments = () => {
     };
 
     fetchKepengurusanData();
-  }, [type]); // Re-fetch when type changes
+  }, []); // Re-fetch when type changes
 
   // Descriptions
   const beDescription =
