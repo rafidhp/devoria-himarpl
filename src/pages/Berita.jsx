@@ -10,22 +10,21 @@ import axios from "axios";
 const pageNews = () => {
   const [news, setNews] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("https://api-himarpl.vercel.app/api/v1/news?page=1&limit=10&order=desc", {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Access-Control-Allow-Origin": "*",
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setNews(response.data);
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching news:", error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("/api/api/v1/news?page=1&limit=10&order=desc", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((response) => {
+        setNews(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching news:", error);
+      });
+  }, []);
 
   const [latestNews] = useState([
     {

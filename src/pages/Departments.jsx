@@ -11,7 +11,7 @@ export const Departments = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [kepengurusanData, setKepengurusanData] = useState([]);
-  
+
   useEffect(() => {
     // Set type based on the current path
     if (location.pathname === "/be") {
@@ -25,9 +25,7 @@ export const Departments = () => {
     const fetchKepengurusanData = async () => {
       try {
         // Use the proxy path instead of the full URL
-        const endpoint = type === "be" 
-          ? "/api/api/v1/departments?type=be&year=2024" 
-          : "/api/api/v1/departments?type=dp&year=2024";
+        const endpoint = type == "be" ? "/api/api/v1/departments?type=be&year=2024" : "/api/api/v1/departments?type=dp&year=2024";
         const response = await axios.get(endpoint);
         const data = response.data;
         setKepengurusanData(data);
@@ -36,54 +34,55 @@ export const Departments = () => {
         console.error("Error fetching data:", error);
         setError(error.message || "An error occurred while fetching data");
         setLoading(false);
-        
+
         // Fallback data in case of API error
-        const fallbackData = type === "be" 
-          ? [
-              {
-                image: "/kepengurusan/be/ketua.jpg",
-                acronym: "KETUA",
-                nama: "FADLI MAHESA"
-              },
-              {
-                image: "/kepengurusan/be/wakil.jpg",
-                acronym: "WAKIL KETUA",
-                nama: "NUR FITRIANI"
-              },
-              {
-                image: "/kepengurusan/be/sekretaris.jpg",
-                acronym: "SEKRETARIS",
-                nama: "MUHAMMAD FADHEL RAIHAN"
-              },
-              {
-                image: "/kepengurusan/be/bendahara.jpg",
-                acronym: "BENDAHARA",
-                nama: "RIFIANI TASRIFIN"
-              }
-            ]
-          : [
-              {
-                image: "/kepengurusan/dp/ketua.jpg",
-                acronym: "KETUA",
-                nama: "ASEP NADHIRIN"
-              },
-              {
-                image: "/kepengurusan/dp/wakil.jpg",
-                acronym: "WAKIL KETUA",
-                nama: "ACHMAD SOEWARDI"
-              },
-              {
-                image: "/kepengurusan/dp/sekretaris.jpg",
-                acronym: "SEKRETARIS",
-                nama: ""
-              },
-              {
-                image: "/kepengurusan/dp/bendahara.jpg",
-                acronym: "BENDAHARA",
-                nama: ""
-              }
-            ];
-        
+        const fallbackData =
+          type === "be"
+            ? [
+                {
+                  image: "/kepengurusan/be/ketua.jpg",
+                  acronym: "KETUA",
+                  nama: "FADLI MAHESA",
+                },
+                {
+                  image: "/kepengurusan/be/wakil.jpg",
+                  acronym: "WAKIL KETUA",
+                  nama: "NUR FITRIANI",
+                },
+                {
+                  image: "/kepengurusan/be/sekretaris.jpg",
+                  acronym: "SEKRETARIS",
+                  nama: "MUHAMMAD FADHEL RAIHAN",
+                },
+                {
+                  image: "/kepengurusan/be/bendahara.jpg",
+                  acronym: "BENDAHARA",
+                  nama: "RIFIANI TASRIFIN",
+                },
+              ]
+            : [
+                {
+                  image: "/kepengurusan/dp/ketua.jpg",
+                  acronym: "KETUA",
+                  nama: "ASEP NADHIRIN",
+                },
+                {
+                  image: "/kepengurusan/dp/wakil.jpg",
+                  acronym: "WAKIL KETUA",
+                  nama: "ACHMAD SOEWARDI",
+                },
+                {
+                  image: "/kepengurusan/dp/sekretaris.jpg",
+                  acronym: "SEKRETARIS",
+                  nama: "",
+                },
+                {
+                  image: "/kepengurusan/dp/bendahara.jpg",
+                  acronym: "BENDAHARA",
+                  nama: "",
+                },
+              ];
+
         setKepengurusanData(fallbackData);
       }
     };
@@ -92,8 +91,10 @@ export const Departments = () => {
   }, [type]); // Re-fetch when type changes
 
   // Descriptions
-  const beDescription = "Badan Eksekutif bertanggung jawab untuk melaksanakan berbagai kegiatan dan program yang terkait dengan pengembangan dan peningkatan kualitas mahasiswa jurusan rekayasa perangkat lunak. Tugas utama badan eksekutif adalah mengelola dan menjalankan rencana kerja serta keputusan yang telah disepakati bersama oleh anggota himpunan. Dengan demikian, badan eksekutif memiliki peran penting dalam memastikan berjalannya kegiatan dan mencapai visi misi HIMARPL.";
-  const dpDescription = "Dewan Perwakilan bertanggung jawab dalam memastikan bahwa kebijakan dan keputusan yang diambil oleh Badan Eksekutif sesuai dengan visi dan misi Himpunan Mahasiswa Rekayasa Perangkat Lunak. Dimana dewan perwakilan melakukan pengawasan yang mencakup evaluasi terhadap pelaksanaan program, keuangan, dan kegiatan lainnya yang dilaksanakan oleh Badan Eksekutif. Dengan demikian, dewan perwakilan berperan sebagai mekanisme kontrol internal yang membantu menjaga akuntabilitas dan transparansi dalam pengelolaan organisasi.";
+  const beDescription =
+    "Badan Eksekutif bertanggung jawab untuk melaksanakan berbagai kegiatan dan program yang terkait dengan pengembangan dan peningkatan kualitas mahasiswa jurusan rekayasa perangkat lunak. Tugas utama badan eksekutif adalah mengelola dan menjalankan rencana kerja serta keputusan yang telah disepakati bersama oleh anggota himpunan. Dengan demikian, badan eksekutif memiliki peran penting dalam memastikan berjalannya kegiatan dan mencapai visi misi HIMARPL.";
+  const dpDescription =
+    "Dewan Perwakilan bertanggung jawab dalam memastikan bahwa kebijakan dan keputusan yang diambil oleh Badan Eksekutif sesuai dengan visi dan misi Himpunan Mahasiswa Rekayasa Perangkat Lunak. Dimana dewan perwakilan melakukan pengawasan yang mencakup evaluasi terhadap pelaksanaan program, keuangan, dan kegiatan lainnya yang dilaksanakan oleh Badan Eksekutif. Dengan demikian, dewan perwakilan berperan sebagai mekanisme kontrol internal yang membantu menjaga akuntabilitas dan transparansi dalam pengelolaan organisasi.";
 
   // Determine which description to use based on type
   const description = type === "be" ? beDescription : dpDescription;
@@ -107,19 +108,19 @@ export const Departments = () => {
     <div id="departments" className="bg-[url(/bg/Bg-Low.png)] pt-[68px] flex flex-col items-center pb-[50px]">
       <div className="flex flex-col items-center lg:w-[1210px] w-[343px] gap-8">
         <div>
-          <AnimatedLongText className="text-7xl text-center text-[#4B4B4B] font-semibold" text={"STRUKTUR KEPENGURUSAN"}/>
+          <AnimatedLongText className="text-7xl text-center text-[#4B4B4B] font-semibold" text={"STRUKTUR KEPENGURUSAN"} />
         </div>
         <div className="bg-black">
-          <AnimatedLongText className="text-8xl text-center text-white font-bold" text={title}/>
+          <AnimatedLongText className="text-8xl text-center text-white font-bold" text={title} />
         </div>
         <div className="">
-          <AnimatedLongText className="text-4xl text-center text-[#4B4B4B] font-semibold tracking-widest" text={"HIMARPL UNIVERSITAS PENDIDIKAN INDONESIA"}/>
+          <AnimatedLongText className="text-4xl text-center text-[#4B4B4B] font-semibold tracking-widest" text={"HIMARPL UNIVERSITAS PENDIDIKAN INDONESIA"} />
         </div>
         <div className="">
-          <AnimatedLongText2 className="text-5xl text-center text-[#4B4B4B] font-medium tracking-wider" text={"2025"}/>
+          <AnimatedLongText2 className="text-5xl text-center text-[#4B4B4B] font-medium tracking-wider" text={"2025"} />
         </div>
         <div className="pt-5">
-          <AnimatedLongText className="text-md text-center text-black font-light" text={description}/>
+          <AnimatedLongText className="text-md text-center text-black font-light" text={description} />
         </div>
       </div>
       {error && (

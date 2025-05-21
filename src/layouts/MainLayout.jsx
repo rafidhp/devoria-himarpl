@@ -140,7 +140,7 @@ export default function MainLayout() {
                   e.stopPropagation();
                   setIsOpen(!isOpen);
                 }}
-                className={`flex items-center justify-between cursor-pointer text-lg ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
+                className={`flex items-center justify-between cursor-pointer  ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
               >
                 About Us
                 <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -231,17 +231,10 @@ export default function MainLayout() {
             <div className="flex flex-col items-start justify-between lg:h-[194px]">
               <img src="/himarpl/logo hima.png" alt="HIMARPL" className="max-w-[200px]" />
               <div className="lg:w-[416px] w-[343px]">
-                <p className="text-white lg:text-base/[24px] text-[12px]/[24px]">Empowering you with knowledge to make informed health decisions. (Dummy) </p>
+                <p className="text-white lg:text-base/[24px] text-[12px]/[24px]">Himpunan Mahasiswa Rekayasa Perangkat Lunak Universitas Pendidikan Indonesia </p>
               </div>
 
               <div className="lg:hidden flex mt-9 flex-row gap-[64px]">
-                <div className="flex flex-col gap-4">
-                  <p className="text-white font-bold text-[12px]">Lorem</p>
-                  <p className="text-white  text-[12px]">apa</p>
-                  <p className="text-white  text-[12px]">apa</p>
-                  <p className="text-white  text-[12px]">apa</p>
-                </div>
-
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-row gap-4">
                     {sosmedLinks.map((link, i) => (
@@ -260,7 +253,7 @@ export default function MainLayout() {
                     </div>
                     <div className="flex flex-row gap-4">
                       <Icon icon="mingcute:phone-line" className="text-white w-6 h-6" />
-                      <p className="text-white text-base/[24px]">+192 666 777</p>
+                      <p className="text-white text-base/[24px]">+62 813-1276-8360</p>
                     </div>
                   </div>
                 </div>
@@ -274,7 +267,7 @@ export default function MainLayout() {
                 </div>
                 <div className="flex flex-row gap-4">
                   <Icon icon="mingcute:phone-line" className="text-white w-6 h-6" />
-                  <p className="text-white text-base/[24px]">+192 666 777</p>
+                  <p className="text-white text-base/[24px]">+62 813-1276-8360</p>
                 </div>
               </div>
             </div>
