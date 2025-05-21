@@ -140,7 +140,7 @@ export default function MainLayout() {
                   e.stopPropagation();
                   setIsOpen(!isOpen);
                 }}
-                className={`flex items-center justify-between cursor-pointer text-lg ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
+                className={`flex items-center justify-between cursor-pointer  ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
               >
                 About Us
                 <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />

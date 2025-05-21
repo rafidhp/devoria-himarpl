@@ -432,7 +432,7 @@ function Sejarah() {
             {cabinets.map((cabinet, index) => {
               return (
                 <SwiperSlide key={index} className="">
-                  <div className="flex flex-col items-center justify-center gap-[64px] z-10">
+                  <div className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-105 transform duration-300 ease-in-out">
                     <img src={cabinet.src} alt={cabinet.alt} className="h-[128px] w-auto" />
                     <div className="flex flex-col items-center justify-center gap-2">
                       <p className="font-semibold text-2xl">{cabinet.name}</p>
@@ -455,7 +455,7 @@ function Sejarah() {
                   transition={{ duration, delay }}
                   variants={animations}
                   key={index}
-                  className="flex flex-col items-center justify-center gap-[64px] z-10"
+                  className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-110 transform duration-300 ease-in-out"
                 >
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px] w-full" />
 

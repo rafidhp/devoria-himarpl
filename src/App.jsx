@@ -8,6 +8,7 @@ import EmailForm from "./pages/EmailForm";
 import Dedication from "./pages/Dedications";
 import Logo from "./pages/Logo";
 import Departments from "./pages/Departments";
+import Berita from "./pages/Berita";
 import { DepartmentDetails } from "./pages/DepartmentDetails";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="struktur" element={<StrukturOrganisasi />} />
         <Route path="contact" element={<Contacts />} />
         <Route path="dedication" element={<Dedication />} />
+        <Route path="berita" element={<Berita />} />
         <Route path="logo" element={<Logo />} />
         <Route path="be" element={<Departments />} />
         <Route path="dp" element={<Departments />} />
