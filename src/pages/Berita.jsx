@@ -93,7 +93,7 @@ const pageNews = () => {
   return (
     <div className={`container mx-auto px-6 md:px-10 ${location.pathname === "/berita" ? "mt-[40px]" : "mt-10"}`} id="scrollableDiv">
       {/* Latest News */}
-      <h1 className="text-2xl font-bold mb-4">Berita Terkini</h1>
+      <AnimatedLongText text="Berita Terkini" className="text-2xl font-bold mb-4"/>
       <p className="text-base mb-6">Check out our latest health articles. And get health information that is useful for you.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -124,7 +124,7 @@ const pageNews = () => {
       </div>
 
       {/* All News */}
-      <h2 className="text-xl font-bold mt-10 mb-4">Semua Berita</h2>
+      <AnimatedLongText text="Semua Berita" className="text-2xl font-bold mt-10 mb-4"/>
       <p className="text-base mb-6">Explore more about our most popular articles that are currently being discussed by people.</p>
       {/* Card for deskrop */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6">
