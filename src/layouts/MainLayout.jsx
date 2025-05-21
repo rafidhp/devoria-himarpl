@@ -52,6 +52,7 @@ export default function MainLayout() {
     currentPath = location.pathname.split("/")[1];
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -138,15 +139,15 @@ export default function MainLayout() {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsOpen(!isOpen);
+                  setIsOpen2(!isOpen2);
                 }}
                 className={`flex items-center justify-between cursor-pointer  ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
               >
                 About Us
-                <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen2 ? "rotate-180" : ""}`} />
               </div>
 
-              {isOpen && (
+              {isOpen2 && (
                 <div className={` mt-2 ml-4 flex flex-col gap-1 border-l-2 border-gray-600/50 pl-4`}>
                   {aboutLinks.map((link, i) => (
                     <Link
