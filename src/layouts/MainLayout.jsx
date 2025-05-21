@@ -1,4 +1,4 @@
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink, useLocation, Link } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import useSmoothScroll from "../hooks/useSmoothScroll";
@@ -9,6 +9,12 @@ export default function MainLayout() {
     { to: "/berita", path: "berita", name: "Berita" },
     { to: "/struktur", path: "struktur", name: "Struktur Organisasi" },
     { to: "/contact", path: "contact", name: "Contacts" },
+  ];
+
+  const aboutLinks = [
+    { to: "/be", path: "be", name: "BE" },
+    { to: "/dp", path: "dp", name: "DP" },
+    { to: "/logo", path: "logo", name: "Logo" },
   ];
 
   const footerLinks = [
@@ -128,25 +134,32 @@ export default function MainLayout() {
                   {link.name}
                 </NavLink>
               ))}
-              <div className="relative " ref={dropdownRef}>
-                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
-                  About Us
-                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
-                </div>
-                {isOpen && (
-                  <div className="absolute mt-2  rounded-md p-2 z-50">
-                    <NavLink to="/be" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
-                      BE
-                    </NavLink>
-                    <NavLink to="/dp" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
-                      DP
-                    </NavLink>
-                    <NavLink to="/logo" className={`block px-4 py-2 hover:bg-[#222222]/60 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
-                      Logo
-                    </NavLink>
-                  </div>
-                )}
+
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(!isOpen);
+                }}
+                className={`flex items-center justify-between cursor-pointer text-lg ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
+              >
+                About Us
+                <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
               </div>
+
+              {isOpen && (
+                <div className={` mt-2 ml-4 flex flex-col gap-1 border-l-2 border-gray-600/50 pl-4`}>
+                  {aboutLinks.map((link, i) => (
+                    <Link
+                      key={i}
+                      to={link.to}
+                      onClick={() => setOpenSidebar(false)}
+                      className={`block px-3 py-2 rounded-md ${isActive(link.path) ? "text-white font-semibold bg-gray-700/50" : "text-[#9C9C9C] hover:text-white hover:bg-gray-700/30"}`}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </nav>
           </div>
         </div>
