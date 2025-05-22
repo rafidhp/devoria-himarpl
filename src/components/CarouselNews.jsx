@@ -16,7 +16,6 @@ export const CarouselNews = ({ data }) => {
             <img src={item.image} alt={item.title} className='w-full h-45 object-cover rounded-sm mb-3' />
             <span className='text-xs font-medium text-gray-500 border rounded-sm p-0.5'>{item.postTags[0]?.title}</span>
             <h2 className='text-base font-medium mt-1 mb-2'>{item.title}</h2>
-            <p className="text-xs text-gray-500  ">{item.author.name}</p>
           </CardContent>
         </Card>
       ))}
@@ -65,7 +64,6 @@ export const CarouselNewsDesktop = ({ data }) => {
                 {item.postTags[0]?.title || 'umum'}
               </span>
               <h3 className="text-sm font-medium mt-1 line-clamp-3">{item.content}</h3>
-              <p className="text-xs text-gray-500  ">{item.author.name}</p>
             </CardContent>
           </Card>
         ))}

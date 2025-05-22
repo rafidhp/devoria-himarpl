@@ -55,7 +55,6 @@ const pageNews = () => {
               <img src={firstNews.image} alt={firstNews.title} className="w-full h-56 object-cover rounded-sm mb-3" />
               <span className="text-xs font-medium text-gray-500 border rounded-sm p-0.5">{firstNews.postTags[0]?.title}</span>
               <h2 className="text-base font-medium mt-1 mb-2">{firstNews.title}</h2>
-              <p className="text-xs text-gray-500  ">{firstNews.author.name}</p>
             </CardContent>
           </Card>
         )}        
@@ -71,7 +70,6 @@ const pageNews = () => {
               <div>
                 <span className="text-xs font-regular text-gray-500 border rounded-sm p-0.5">{item.postTags[0]?.title|| 'umum'}</span>
                 <h3 className="text-base line-clamp-2">{item.title}</h3>
-                <p className="text-xs text-gray-500  ">{item.author.name}</p>
               </div>
             </div>
           ))}
