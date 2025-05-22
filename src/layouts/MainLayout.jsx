@@ -5,6 +5,7 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function MainLayout() {
   const links = [
+    { to: "/", path: "", name: "Beranda" },
     { to: "/dedication", path: "dedication", name: "Dedikasi" },
     { to: "/berita", path: "berita", name: "Berita" },
     { to: "/struktur", path: "struktur", name: "Struktur Organisasi" },
@@ -119,6 +120,8 @@ export default function MainLayout() {
             </NavLink>
 
             <nav className="flex flex-col gap-4">
+              {/* <div clas>
+
               <NavLink
                 to={"/"}
                 onClick={() => {
@@ -127,37 +130,44 @@ export default function MainLayout() {
                   }
                 }}
                 className={`${currentPath === "" ? "text-white font-semibold" : "text-[#9C9C9C]"} `}
-              >
+                >
                 Beranda
               </NavLink>
+                </div> */}
               {links.map((link, i) => (
-                <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-white font-semibold" : "text-[#9C9C9C]"} `}>
-                  {link.name}
-                </NavLink>
+                <div key={i} className="group transition-all relative">
+                  <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-white w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
+                  <NavLink to={link.to} className={`${currentPath === link.path ? "text-white font-semibold" : "text-[#9C9C9C]"} `}>
+                    {link.name}
+                  </NavLink>
+                </div>
               ))}
 
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen2(!isOpen2);
-                }}
-                className={`flex items-center justify-between cursor-pointer  ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] hover:text-white"} transition-colors`}
-              >
-                About Us
-                <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen2 ? "rotate-180" : ""}`} />
+              <div className="group transition-all relative">
+                <span className={`h-[2px] inline-block ${["be", "dp", "logo"].includes(currentPath) ? "bg-white w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>
+                  &nbsp;
+                </span>
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen2(!isOpen2);
+                  }}
+                  className={`flex items-center justify-between cursor-pointer  ${["be", "dp", "logo"].includes(currentPath) ? "text-white font-semibold" : "text-[#9C9C9C] "} transition-colors`}
+                >
+                  About Us
+                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen2 ? "rotate-180" : ""}`} />
+                </div>
               </div>
 
               {isOpen2 && (
                 <div className={` mt-2 ml-4 flex flex-col gap-1 border-l-2 border-gray-600/50 pl-4`}>
                   {aboutLinks.map((link, i) => (
-                    <Link
-                      key={i}
-                      to={link.to}
-                      onClick={() => setOpenSidebar(false)}
-                      className={`block px-3 py-2 rounded-md ${isActive(link.path) ? "text-white font-semibold bg-gray-700/50" : "text-[#9C9C9C] hover:text-white hover:bg-gray-700/30"}`}
-                    >
-                      {link.name}
-                    </Link>
+                    <div className="group transition-all relative">
+                      <span className={`h-[2px] inline-block ${isActive(link.path) ? "bg-white w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
+                      <Link key={i} to={link.to} onClick={() => setOpenSidebar(false)} className={`block  py-2 rounded-md ${isActive(link.path) ? "text-white font-semibold " : "text-[#9C9C9C] "}`}>
+                        {link.name}
+                      </Link>
+                    </div>
                   ))}
                 </div>
               )}
@@ -187,27 +197,40 @@ export default function MainLayout() {
           </NavLink>
 
           <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
-            <NavLink
-              to={"/"}
-              onClick={() => {
-                if (currentPath === "") {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }
-              }}
-              className={`${currentPath === "" ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}
-            >
-              Beranda
-            </NavLink>
-            {links.map((link, i) => (
-              <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
-                {link.name}
+            {/* <div className="relative group transition-all">
+              <span className={`h-[2px] inline-block ${currentPath === "" ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
+
+              <NavLink
+                to={"/"}
+                onClick={() => {
+                  if (currentPath === "") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className={`${currentPath === "" ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}
+              >
+                Beranda
               </NavLink>
+            </div> */}
+            {links.map((link, i) => (
+              <div key={i} className="relative group transition-all">
+                <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
+                <NavLink to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
+                  {link.name}
+                </NavLink>
+              </div>
             ))}
 
             <div className="relative " ref={dropdownRef}>
-              <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
-                About Us
-                <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
+              <div className="relative group transition-all">
+                <span className={`h-[2px] inline-block ${["be", "dp", "logo"].includes(currentPath) ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>
+                  &nbsp;
+                </span>
+
+                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+                  About Us
+                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                </div>
               </div>
               {isOpen && (
                 <div className="absolute mt-2 bg-white shadow-md rounded-md p-2 z-50">
@@ -262,13 +285,21 @@ export default function MainLayout() {
               <div className="lg:flex hidden flex-col gap-2">
                 <div className="flex flex-row gap-4">
                   <Icon icon="mdi:email-outline" className="text-white w-6 h-6" />
-                  <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
-                    himarpl@upi.edu
-                  </a>
+                  <div className="relative group transition-all ">
+                    <span className="h-[2px] inline-block bg-white absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300 w-0">&nbsp;</span>
+                    <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
+                      himarpl@upi.edu
+                    </a>
+                  </div>
                 </div>
                 <div className="flex flex-row gap-4">
                   <Icon icon="mingcute:phone-line" className="text-white w-6 h-6" />
-                  <p className="text-white text-base/[24px]">+62 813-1276-8360</p>
+                  <div className="relative group transition-all ">
+                    <span className="h-[2px] inline-block bg-white absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300 w-0">&nbsp;</span>
+                    <a href="https://wa.me/6281312768360" className="text-white text-base/[24px] ">
+                      +62 813-1276-8360
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
