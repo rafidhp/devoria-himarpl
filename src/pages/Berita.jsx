@@ -8,7 +8,7 @@ import { CarouselNews } from "../components/CarouselNews";
 import axios from "axios";
 import { CarouselNewsDesktop } from "../components/CarouselNews";
 
-const pageNews = () => {
+const PageNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -87,4 +87,4 @@ const pageNews = () => {
   );
 };
 
-export default pageNews;
+export default PageNews;

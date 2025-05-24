@@ -30,15 +30,18 @@ export default function Home() {
     textOrientation: "upright",
   };
 
+  // eslint-disable-next-line no-unused-vars
   const textStyle1 = {
     WebkitTextStroke: "2px white",
     color: "transparent",
   };
+
   const textStyle2 = {
     WebkitTextStroke: "2px #887300",
     color: "transparent",
     fontWeight: "700",
   };
+
   return (
     <>
       <div id="home" className="pt-8 bg-white">
