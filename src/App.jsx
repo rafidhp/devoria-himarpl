@@ -10,6 +10,7 @@ import Logo from "./pages/Logo";
 import Departments from "./pages/Departments";
 import Berita from "./pages/Berita";
 import { DepartmentDetails } from "./pages/DepartmentDetails";
+import { TestConnection } from "./pages/TestConnection";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="logo" element={<Logo />} />
         <Route path="be" element={<Departments />} />
         <Route path="dp" element={<Departments />} />
+        <Route path="test" element={<TestConnection />} />
         <Route path="*" element={<h1>Under Construction :D</h1>} />
       </Route>
       <Route path="/contact/submit" element={<EmailForm />}></Route>
