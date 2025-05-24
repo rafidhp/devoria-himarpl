@@ -1,12 +1,40 @@
-# React + Vite
+<p align="center">
+  <br />
+  <a href="https://www.himarpl.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/himarplupi/assets-himarpl@v1.3.5/images/logo/logo-landscape-dark.png">
+      <img src="https://cdn.jsdelivr.net/gh/himarplupi/assets-himarpl@v1.3.5/images/logo/logo-landscape-light.png" width="200px">
+    </picture>
+  </a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="https://www.himarpl.com">himarpl.com</a> built using React JS with Vite.
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a title="MIT License" href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" />
+  </a>
+  <a title="Vercel" href="https://vercel.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/powered%20by-Vercel%20%E2%96%B2-white">
+      <img src="https://img.jsdelivr.net/gh/himarplupi/assets-himarpl@v1.3.5/images/logo/logo-landscape-light.png" alt="Powered by Vercel">
+    </picture>
+  </a>
+  <br />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What is this repository?
 
-## Expanding the ESLint configuration
+This repository contains the source code for the <a href="https://www.himarpl.com">himarpl.com</a> website. It is built using <a href="https://nextjs.org">Next.js</a>, a <a href="https://react.dev/">React Framework</a>, and Prisma for database management.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+
+This website is automatically deployed to <a href="https://vercel.com">Vercel</a> via GitHub Actions integration when there is a new push to the `main` branch.
+
+The current integration is owned and managed by the Website Team in the HIMARPL Kominfo Department.
+
+## Thank You
+
+- Thanks to all contributors and collaborators who developed this project.
