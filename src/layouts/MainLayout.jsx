@@ -197,8 +197,8 @@ export default function MainLayout() {
               <img src="/himarpl/logo hima.png" alt="HIMARPL" className="lg:w-[240px] w-[140px] max-h-[70px]" />
             </NavLink>
 
-          <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
-            {/* <div className="relative group transition-all">
+            <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
+              {/* <div className="relative group transition-all">
               <span className={`h-[2px] inline-block ${currentPath === "" ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
               {links.map((link, i) => (
                 <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
@@ -211,26 +211,26 @@ export default function MainLayout() {
                   About Us
                   <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
             </div> */}
-            {links.map((link, i) => (
-              <div key={i} className="relative group transition-all">
-                <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
-                <NavLink to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
-                  {link.name}
-                </NavLink>
-              </div>
-            ))}
-
-            <div className="relative " ref={dropdownRef}>
-              <div className="relative group transition-all">
-                <span className={`h-[2px] inline-block ${["be", "dp", "logo"].includes(currentPath) ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>
-                  &nbsp;
-                </span>
-
-                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
-                  About Us
-                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
+              {links.map((link, i) => (
+                <div key={i} className="relative group transition-all">
+                  <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
+                  <NavLink to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
+                    {link.name}
+                  </NavLink>
                 </div>
-              </div>
+              ))}
+
+              <div className="relative " ref={dropdownRef}>
+                <div className="relative group transition-all">
+                  <span className={`h-[2px] inline-block ${["be", "dp", "logo"].includes(currentPath) ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>
+                    &nbsp;
+                  </span>
+
+                  <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
+                    About Us
+                    <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                  </div>
+                </div>
                 {isOpen && (
                   <div className="absolute mt-2 bg-white shadow-md rounded-md p-2 z-50">
                     <NavLink to="/be" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>

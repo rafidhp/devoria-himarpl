@@ -226,11 +226,6 @@ function Dedication() {
       title: "RPL Peduli",
       bgColor: "#FF7F11",
     },
-    {
-      img: "/dedications/dedikasi2.jpg",
-      title: "RPL Berbagi",
-      bgColor: "#5573FF",
-    },
   ];
 
   return (
@@ -249,7 +244,7 @@ function Dedication() {
         {/* <p className="text-base/[24px] text-white text-center">Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota.</p> */}
       </div>
 
-      <div className="lg:flex hidden flex-row items-center lg:gap-10 xl:gap-4 justify-between lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
+      <div className="lg:flex hidden flex-row items-center lg:gap-10 xl:gap-4 justify-evenly lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
         {dedikasiItems.map((item, index) => (
           <CardDedication key={index} index={index} img={item.img} bgColor={item.bgColor} title={item.title} />
         ))}
