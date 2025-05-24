@@ -4,7 +4,6 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import { useCallback, useRef } from "react";
-import { motion } from "framer-motion";
 import AnimatedText from "../components/AnimatedText";
   
 const duration = 0.6;

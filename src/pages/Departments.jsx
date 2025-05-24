@@ -83,7 +83,7 @@ export const Departments = () => {
     };
 
     fetchKepengurusanData();
-  }, []); // Re-fetch when type changes
+  }, [type]); // Re-fetch when type changes
 
   // Descriptions
   const beDescription =

@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import React from "react";
+
 const container = {
   hidden: { opacity: 0 },
   show: {
