@@ -8,14 +8,14 @@ import { CarouselNews } from "../components/CarouselNews";
 import axios from "axios";
 import { CarouselNewsDesktop } from "../components/CarouselNews";
 
-
 const pageNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get("/api/api/v1/news")
+    axios
+      .get("https://api-himarpl.vercel.app/api/v1/news")
       .then((response) => {
         setNews(response.data.data);
         console.log(response.data.data);
@@ -26,7 +26,7 @@ const pageNews = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [])
+  }, []);
 
   if (isLoading) {
     return (
@@ -35,16 +35,14 @@ const pageNews = () => {
       </div>
     );
   }
-  const latestNews = [...news]
-  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-  .slice(0, 4); 
+  const latestNews = [...news].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 4);
 
   const [firstNews, ...otherNews] = latestNews;
 
   return (
     <div className={`container mx-auto px-6 md:px-10 ${location.pathname === "/berita" ? "mt-[40px]" : "mt-10"}`} id="scrollableDiv">
       {/* Latest News */}
-      <AnimatedLongText text="Berita Terkini" className="text-2xl font-bold mb-4"/>
+      <AnimatedLongText text="Berita Terkini" className="text-2xl font-bold mb-4" />
       <p className="text-base mb-6">Dapatkan berita terbaru seputar kegiatan kampus dan HIMARPL. Ikuti informasi penting, event, serta pencapaian mahasiswa RPL.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -57,7 +55,7 @@ const pageNews = () => {
               <h2 className="text-base font-medium mt-1 mb-2">{firstNews.title}</h2>
             </CardContent>
           </Card>
-        )}        
+        )}
 
         {/* Carousel for Mobile */}
         <CarouselNews data={latestNews} />
@@ -68,7 +66,7 @@ const pageNews = () => {
             <div key={index} className="flex items-center gap-3 p-2">
               <img src={item.image} alt={item.title} className="w-18 h-18 object-cover rounded-sm" />
               <div>
-                <span className="text-xs font-regular text-gray-500 border rounded-sm p-0.5">{item.postTags[0]?.title|| 'umum'}</span>
+                <span className="text-xs font-regular text-gray-500 border rounded-sm p-0.5">{item.postTags[0]?.title || "umum"}</span>
                 <h3 className="text-base line-clamp-2">{item.title}</h3>
               </div>
             </div>
@@ -77,11 +75,11 @@ const pageNews = () => {
       </div>
 
       {/* All News */}
-      <AnimatedLongText text="Semua Berita" className="text-2xl font-bold mt-10 mb-4"/>
+      <AnimatedLongText text="Semua Berita" className="text-2xl font-bold mt-10 mb-4" />
       <p className="text-base mb-6">Telusuri seluruh berita seputar HIMARPL dan aktivitas kampus. Jangan lewatkan informasi terbaru, agenda penting, dan kisah inspiratif dari mahasiswa RPL.</p>
 
       {/* Carousel & card for deskrop */}
-      <CarouselNewsDesktop data={news}/>
+      <CarouselNewsDesktop data={news} />
 
       {/* Carousel for Mobile */}
       <CarouselNews data={news} />
