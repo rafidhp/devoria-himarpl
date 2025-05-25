@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import { api } from "../services/apiService";
 import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import { CardKepengurusan } from "../components/CardKepengurusan";
@@ -13,91 +13,73 @@ export const Departments = () => {
 
   const path = location.pathname;
   const type = path === "/be" ? "be" : "dp";
+  
   useEffect(() => {
     const fetchKepengurusanData = async () => {
-      const endpoint = `/api/api/v1/departments?type=${type}&year=2024`;
-
       try {
-        // Use the proxy path instead of the full URL
-        const response = await axios.get(endpoint);
+        setLoading(true);
+        setError(null);
+        
+        // Use the configured API instance from apiService
+        const response = await api.get(`/departments?type=${type}&year=2024`);
         console.log(response.data.data);
-
+        
         const data = response.data;
-        setKepengurusanData(data.data);
-        setLoading(false);
+        setKepengurusanData(data.data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error.message || "An error occurred while fetching data");
+        
+        // Set empty array as fallback
+        setKepengurusanData([]);
+      } finally {
         setLoading(false);
-
-        // Fallback data in case of API error
-        const fallbackData =
-          type === "be"
-            ? [
-                {
-                  image: "/kepengurusan/be/ketua.jpg",
-                  acronym: "KETUA",
-                  nama: "FADLI MAHESA",
-                },
-                {
-                  image: "/kepengurusan/be/wakil.jpg",
-                  acronym: "WAKIL KETUA",
-                  nama: "NUR FITRIANI",
-                },
-                {
-                  image: "/kepengurusan/be/sekretaris.jpg",
-                  acronym: "SEKRETARIS",
-                  nama: "MUHAMMAD FADHEL RAIHAN",
-                },
-                {
-                  image: "/kepengurusan/be/bendahara.jpg",
-                  acronym: "BENDAHARA",
-                  nama: "RIFIANI TASRIFIN",
-                },
-              ]
-            : [
-                {
-                  image: "/kepengurusan/dp/ketua.jpg",
-                  acronym: "KETUA",
-                  nama: "ASEP NADHIRIN",
-                },
-                {
-                  image: "/kepengurusan/dp/wakil.jpg",
-                  acronym: "WAKIL KETUA",
-                  nama: "ACHMAD SOEWARDI",
-                },
-                {
-                  image: "/kepengurusan/dp/sekretaris.jpg",
-                  acronym: "SEKRETARIS",
-                  nama: "",
-                },
-                {
-                  image: "/kepengurusan/dp/bendahara.jpg",
-                  acronym: "BENDAHARA",
-                  nama: "",
-                },
-              ];
-
-        setKepengurusanData(fallbackData);
       }
     };
-
+    
     fetchKepengurusanData();
-  }, []); // Re-fetch when type changes
+  }, [type]); // Re-fetch when type changes
 
   // Descriptions
-  const beDescription =
-    "Badan Eksekutif bertanggung jawab untuk melaksanakan berbagai kegiatan dan program yang terkait dengan pengembangan dan peningkatan kualitas mahasiswa jurusan rekayasa perangkat lunak. Tugas utama badan eksekutif adalah mengelola dan menjalankan rencana kerja serta keputusan yang telah disepakati bersama oleh anggota himpunan. Dengan demikian, badan eksekutif memiliki peran penting dalam memastikan berjalannya kegiatan dan mencapai visi misi HIMARPL.";
-  const dpDescription =
-    "Dewan Perwakilan bertanggung jawab dalam memastikan bahwa kebijakan dan keputusan yang diambil oleh Badan Eksekutif sesuai dengan visi dan misi Himpunan Mahasiswa Rekayasa Perangkat Lunak. Dimana dewan perwakilan melakukan pengawasan yang mencakup evaluasi terhadap pelaksanaan program, keuangan, dan kegiatan lainnya yang dilaksanakan oleh Badan Eksekutif. Dengan demikian, dewan perwakilan berperan sebagai mekanisme kontrol internal yang membantu menjaga akuntabilitas dan transparansi dalam pengelolaan organisasi.";
+  const descriptions = {
+    be: "Badan Eksekutif bertanggung jawab untuk melaksanakan berbagai kegiatan dan program yang terkait dengan pengembangan dan peningkatan kualitas mahasiswa jurusan rekayasa perangkat lunak. Tugas utama badan eksekutif adalah mengelola dan menjalankan rencana kerja serta keputusan yang telah disepakati bersama oleh anggota himpunan. Dengan demikian, badan eksekutif memiliki peran penting dalam memastikan berjalannya kegiatan dan mencapai visi misi HIMARPL.",
+    dp: "Dewan Perwakilan bertanggung jawab dalam memastikan bahwa kebijakan dan keputusan yang diambil oleh Badan Eksekutif sesuai dengan visi dan misi Himpunan Mahasiswa Rekayasa Perangkat Lunak. Dimana dewan perwakilan melakukan pengawasan yang mencakup evaluasi terhadap pelaksanaan program, keuangan, dan kegiatan lainnya yang dilaksanakan oleh Badan Eksekutif. Dengan demikian, dewan perwakilan berperan sebagai mekanisme kontrol internal yang membantu menjaga akuntabilitas dan transparansi dalam pengelolaan organisasi."
+  };
 
-  // Determine which description to use based on type
-  const description = type === "be" ? beDescription : dpDescription;
-  const title = type === "be" ? "BADAN EKSEKUTIF" : "DEWAN PERWAKILAN";
+  const titles = {
+    be: "BADAN EKSEKUTIF",
+    dp: "DEWAN PERWAKILAN"
+  };
 
-  // Show loading or error states
-  if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
-  if (error && kepengurusanData.length === 0) return <div className="flex justify-center items-center h-screen">Error: {error}</div>;
+  // Determine which description and title to use based on type
+  const description = descriptions[type];
+  const title = titles[type];
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[url(/bg/Bg-Low.png)]">
+        <div className="text-xl font-medium text-gray-700">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show error state when no data and error exists
+  if (error && kepengurusanData.length === 0) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[url(/bg/Bg-Low.png)]">
+        <div className="text-center">
+          <div className="text-xl text-red-500 mb-4">Error: {error}</div>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="departments" className="bg-[url(/bg/Bg-Low.png)] pt-[68px] flex flex-col items-center pb-[50px]">
@@ -127,7 +109,7 @@ export const Departments = () => {
         <div className="flex flex-row flex-wrap gap-x-48 gap-y-28 justify-center my-10">
           {kepengurusanData.map((item, index) => (
             <div key={index} className="">
-              <CardKepengurusan img={item.image} department={item.acronym} nama={item.nama} />
+              <CardKepengurusan img={item.image} department={item.acronym?.toUpperCase()} nama={item.nama?.toUpperCase()} deptType={type} />
             </div>
           ))}
         </div>

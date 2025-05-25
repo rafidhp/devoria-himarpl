@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
 import React from "react";
+import { motion as Motion } from "framer-motion";
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -19,7 +20,7 @@ const AnimatedLongText = ({ text, className = "" }) => {
   const parts = text.split(/(<b>.*?<\/b>)/g);
 
   return (
-    <motion.p variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }} className={className}>
+    <Motion.p variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }} className={className}>
       {parts.map((part, index) => {
         if (part.startsWith("<b>")) {
           const content = part.replace(/<\/?b>/g, "");
@@ -27,10 +28,10 @@ const AnimatedLongText = ({ text, className = "" }) => {
           return (
             <b key={index}>
               {words.map((word, i) => (
-                <motion.span key={i} variants={wordAnimation} style={{ display: "inline-block" }}>
+                <Motion.span key={i} variants={wordAnimation} style={{ display: "inline-block" }}>
                   {word}
                   {i !== words.length - 1 && "\u00A0"}
-                </motion.span>
+                </Motion.span>
               ))}
             </b>
           );
@@ -40,15 +41,15 @@ const AnimatedLongText = ({ text, className = "" }) => {
         return (
           <React.Fragment key={index}>
             {words.map((word, i) => (
-              <motion.span key={i} variants={wordAnimation} style={{ display: "inline-block" }}>
+              <Motion.span key={i} variants={wordAnimation} style={{ display: "inline-block" }}>
                 {word}
                 {i !== words.length - 1 && "\u00A0"}
-              </motion.span>
+              </Motion.span>
             ))}
           </React.Fragment>
         );
       })}
-    </motion.p>
+    </Motion.p>
   );
 };
 
