@@ -128,7 +128,7 @@ export const DepartmentDetails = () => {
             </div>
 
             <div className="max-w-fit flex flex-col justify-center items-center rounded-2xl overflow-hidden">
-              <img src={String(departmentDetails.image)} alt="kepengurusan" className="w-full pt-5 rounded-t-2xl h-[600px] object-cover object-[center_-0%]" />
+              <img src={String(departmentDetails.image)} alt={String(departmentDetails.acronym)} className={`w-full  rounded-t-2xl h-[600px] object-cover object-[center_-0%] ${!departmentDetails.image ? "bg-[#6C6C6C] " : ""}`} />
               <div className="flex flex-col justify-center items-center w-full rounded-b-2xl bg-[#000000] z-10 opacity-80">
                 <h2 className="rounded-b-2xl p-5 text-white text-normal font-light">{String(departmentDetails.description)}</h2>
               </div>

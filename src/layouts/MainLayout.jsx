@@ -20,24 +20,9 @@ export default function MainLayout() {
 
   const footerLinks = [
     [
-      { to: "/blogs", label: "Other blogs" },
-      { to: "/download", label: "Download" },
-      { to: "/api", label: "API" },
-      { to: "/integration", label: "Integrations" },
-    ],
-    [
-      { to: "/partner", label: "Partner" },
-      { to: "/writer", label: "Writer" },
-      { to: "/review", label: "Customer Review" },
-    ],
-    [
+      { to: "https://blog-himarpl.vercel.app/", label: "Blogs" },
+      { to: "http://api-himarpl.vercel.app/api-docs", label: "API Documentation" },
       { to: "/be", label: "About Us" },
-      { to: "/privacy", label: "Privacy Policy" },
-      { to: "/terms", label: "Terms & Conditions" },
-    ],
-    [
-      { to: "/help", label: "Help" },
-      { to: "/resources", label: "Resources" },
       { to: "/contacts", label: "Contacts" },
     ],
   ];
@@ -205,13 +190,13 @@ export default function MainLayout() {
                 </div>
                 {isOpen && (
                   <div className="absolute mt-2 bg-white shadow-md rounded-md p-2 z-50">
-                    <NavLink to="/be" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                    <NavLink to="/be" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("be") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`} onClick={() => setIsOpen(false)}>
                       BE
                     </NavLink>
-                    <NavLink to="/dp" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                    <NavLink to="/dp" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("dp") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`} onClick={() => setIsOpen(false)}>
                       DP
                     </NavLink>
-                    <NavLink to="/logo" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`}>
+                    <NavLink to="/logo" className={`block px-4 py-2 hover:bg-gray-100 ${isActive("logo") ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"}`} onClick={() => setIsOpen(false)}>
                       Logo
                     </NavLink>
                   </div>
@@ -243,17 +228,27 @@ export default function MainLayout() {
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4">
                       <Icon icon="mdi:email-outline" className="text-white w-6 h-6" />
-                      <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
-                        himarpl@upi.edu
-                      </a>
+
+                      <div className="relative group transition-all ">
+                        <span className="h-[2px] inline-block bg-white absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300 w-0">&nbsp;</span>
+                        <a href="mailto:himarpl@upi.edu" className="text-white text-base/[24px]">
+                          himarpl@upi.edu
+                        </a>
+                      </div>
                     </div>
                     <div className="flex flex-row gap-4">
                       <Icon icon="mingcute:phone-line" className="text-white w-6 h-6" />
-                      <p className="text-white text-base/[24px]">+62 813-1276-8360</p>
+                      <div className="relative group transition-all ">
+                        <span className="h-[2px] inline-block bg-white absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300 w-0">&nbsp;</span>
+                        <a href="https://wa.me/6281312768360" className="text-white text-base/[24px]">
+                          +62 813-1276-8360
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div className="lg:flex hidden flex-col gap-2">
                 <div className="flex flex-row gap-4">
                   <Icon icon="mdi:email-outline" className="text-white w-6 h-6" />
@@ -280,24 +275,36 @@ export default function MainLayout() {
               {footerLinks.map((section, i) => (
                 <div key={i} className="flex flex-col gap-4">
                   {section.map((link, j) => (
-                    <NavLink key={j} to={link.to} className="text-[#6C6C6C] font-medium">
-                      {link.label}
-                    </NavLink>
+                    <div key={j} className="cursor-pointer relative group transition-all ">
+                      <span className="h-[2px] inline-block bg-[#6C6C6C] absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300 w-0">&nbsp;</span>
+
+                      <NavLink to={link.to} className="text-[#6C6C6C] font-medium" target="_blank">
+                        {link.label}
+                      </NavLink>
+                    </div>
                   ))}
                 </div>
               ))}
+
+              <div className="flex flex-row gap-4">
+                {sosmedLinks.map((link, i) => (
+                  <NavLink to={link.to} key={i} className="flex items-center justify-center w-8 h-8 bg-white rounded-full p-2">
+                    <Icon icon={link.icon} className="text-black w-4 h-4 hover:text-gray-500 transition-all duration-150" />
+                  </NavLink>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="flex flex-row items-center justify-between mt-5">
             <p className="text-[#747474] lg:text-base/[24px] text-[10px]">&copy; Copyright 2025 HIMARPL all rights reserved.</p>
-            <div className="lg:flex hidden flex-row gap-4">
+            {/* <div className="lg:flex hidden flex-row gap-4">
               {sosmedLinks.map((link, i) => (
                 <NavLink key={i} to={link.to} target="_blank">
                   <Icon icon={link.icon} className="text-[#747474] w-4 h-4 hover:text-white transition-all duration-150" />
                 </NavLink>
               ))}
-            </div>
+            </div> */}
           </div>
         </footer>
       </div>
