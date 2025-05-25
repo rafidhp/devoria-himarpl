@@ -7,6 +7,7 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 import { useCallback, useRef } from "react";
 import AnimatedText from "../components/AnimatedText";
 import { fetchDepartmentDetails, fetchDepartmentStaff } from "../services/apiService";
+import { motion as Motion } from "framer-motion";
   
 const duration = 0.6;
 const delay = 0;
@@ -142,7 +143,7 @@ export const DepartmentDetails = () => {
               </div>
             </div>
             
-            <motion.div
+            <Motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
@@ -169,7 +170,7 @@ export const DepartmentDetails = () => {
                   <p className="text-black lg:text-[24px]/[40px] text-base/[24px]">No programs available.</p>
                 )}
               </div>
-            </motion.div>
+            </Motion.div>
           </>
         )}
       </div>

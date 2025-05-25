@@ -1,3 +1,5 @@
+import { motion as Motion } from "framer-motion";
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -15,15 +17,15 @@ const wordAnimation = {
 
 const AnimatedText = ({ text, className = "", style = {} }) => {
   return (
-    <motion.div variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }}>
-      <motion.p className={`${className}`} style={style}>
+    <Motion.div variants={container} initial="hidden" whileInView={"show"} viewport={{ once: true }}>
+      <Motion.p className={`${className}`} style={style}>
         {text.split("").map((char, index) => (
-          <motion.span key={`char-${index}`} variants={wordAnimation}>
+          <Motion.span key={`char-${index}`} variants={wordAnimation}>
             {char === " " ? "\u00A0" : char}
-          </motion.span>
+          </Motion.span>
         ))}
-      </motion.p>
-    </motion.div>
+      </Motion.p>
+    </Motion.div>
   );
 };
 
