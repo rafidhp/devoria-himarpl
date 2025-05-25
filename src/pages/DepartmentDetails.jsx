@@ -5,7 +5,6 @@ import { CardKepengurusan } from "../components/CardKepengurusan";
 import { Icon } from "@iconify/react";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import { useCallback, useRef } from "react";
-import { motion } from "framer-motion";
 import AnimatedText from "../components/AnimatedText";
 import { fetchDepartmentDetails, fetchDepartmentStaff } from "../services/apiService";
   

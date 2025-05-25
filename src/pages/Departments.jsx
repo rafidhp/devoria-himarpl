@@ -38,7 +38,7 @@ export const Departments = () => {
     };
     
     fetchKepengurusanData();
-  }, [type]); // Added type dependency to re-fetch when type changes
+  }, [type]); // Re-fetch when type changes
 
   // Descriptions
   const descriptions = {
