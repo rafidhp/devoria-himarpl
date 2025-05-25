@@ -54,13 +54,11 @@ export default function Dedication() {
       <img src="/ornaments/Vector 50.svg" alt="vector" className="lg:w-[306px] w-[250px] absolute bottom-0 left-0 -z-10" />
       <div className="flex flex-col justify-center items-center lg:gap-8 gap-6 lg:w-[619px] w-[343px]">
         <AnimatedLongText2 text="Dedikasi Kami" className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px] z-10" />
-        {/* <h1 className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px]">Dedikasi Kami</h1> */}
 
         <AnimatedLongText
           className="text-base/[24px] text-white text-center"
           text="Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota."
         />
-        {/* <p className="text-base/[24px] text-white text-center">Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota.</p> */}
       </div>
 
       <InfiniteScroll

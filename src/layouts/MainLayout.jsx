@@ -101,6 +101,7 @@ export default function MainLayout() {
 
   return (
     <div id="scrollableDiv" className="min-h-screen overflow-x-hidden relative" ref={scrollRef} style={{ height: "100vh" }}>
+      {/* mobile sidebar */}
       <div className={`fixed top-0 left-0 w-full h-full z-[60] transform-all duration-600 ${openSidebar ? "translate-x-0" : "-translate-x-full"}`} onClick={() => setOpenSidebar(false)}>
         <div
           ref={sideBarRef}
@@ -120,20 +121,6 @@ export default function MainLayout() {
             </NavLink>
 
             <nav className="flex flex-col gap-4">
-              {/* <div clas>
-
-              <NavLink
-                to={"/"}
-                onClick={() => {
-                  if (currentPath === "") {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
-                }}
-                className={`${currentPath === "" ? "text-white font-semibold" : "text-[#9C9C9C]"} `}
-                >
-                Beranda
-              </NavLink>
-                </div> */}
               {links.map((link, i) => (
                 <div key={i} className="group transition-all relative">
                   <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-white w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
@@ -177,11 +164,9 @@ export default function MainLayout() {
       </div>
 
       <div className={`flex flex-col justify-center items-center lg:mt-[50px] mt-10`}>
-        <div className="w-full flex justify-center px-6 md:px-10">
+        <div className={`sticky top-8 z-50 transition-transform duration-500 w-full flex justify-center px-6 md:px-10 ${showNavbar ? "translate-y-0" : "-translate-y-[115px] "}`}>
           <div
-            className={`sticky top-8 z-50 transition-transform duration-500 ${
-              showNavbar ? "translate-y-0" : "-translate-y-[115px] "
-            } bg-white flex flex-row gap-32 justify-between items-center max-w-[1220px] w-full border border-[#A7A7A7] rounded-2xl lg:gap-auto  drop-shadow(0px_4px_12px_rgba(0,0,0,0.04)) lg:flex-row lg:px-0 px-4 min-w-[343px] h-[70px]`}
+            className={`  bg-white flex flex-row gap-32 justify-between items-center max-w-[1220px] w-full border border-[#A7A7A7] rounded-2xl lg:gap-auto  drop-shadow(0px_4px_12px_rgba(0,0,0,0.04)) lg:flex-row lg:px-0 px-4 min-w-[343px] h-[70px]`}
           >
             <div className="lg:hidden">
               <Icon icon="mdi:hamburger-menu" className="cursor-pointer w-8 h-8 " onClick={() => setOpenSidebar(!openSidebar)} />
@@ -198,19 +183,6 @@ export default function MainLayout() {
             </NavLink>
 
             <nav className="lg:flex hidden  flex-row px-6 py-4 gap-6 items-center justify-between">
-              {/* <div className="relative group transition-all">
-              <span className={`h-[2px] inline-block ${currentPath === "" ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
-              {links.map((link, i) => (
-                <NavLink key={i} to={link.to} className={`${currentPath === link.path ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} `}>
-                  {link.name}
-                </NavLink>
-              ))}
-
-              <div className="relative " ref={dropdownRef}>
-                <div onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer ${["be", "dp", "logo"].includes(currentPath) ? "text-[#10316B] font-semibold" : "text-[#9C9C9C]"} flex items-center gap-1`}>
-                  About Us
-                  <Icon icon="mingcute:down-line" className={`w-6 h-6 transition-all duration-200 ${isOpen ? "rotate-180" : ""}`} />
-            </div> */}
               {links.map((link, i) => (
                 <div key={i} className="relative group transition-all">
                   <span className={`h-[2px] inline-block ${currentPath === link.path ? "bg-[#10316B] w-full" : "bg-[#9C9C9C] w-0"} -bottom-0.5 absolute left-0  group-hover:w-full transition-[width] ease duration-300 `}>&nbsp;</span>
