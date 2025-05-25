@@ -48,10 +48,8 @@ export default function Home() {
         <div className="relative">
           <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:w-[1220px] lg:mx-[110px] mx-4">
             <div className="lg:max-w-[555px] flex flex-col gap-2">
-              {/* <p className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]">HIMARPL</p> */}
               <AnimatedText text="HIMARPL" className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]" />
               <div className="bg-black p-2">
-                {/* <p className="font-bold text-[32px] lg:text-[56px]/[64px] text-white underline decoration-[#FFE867] decoration-2 underline-offset-8">Kabinet Devoria</p> */}
                 <AnimatedText text="Kabinet Devoria" className="font-bold text-[32px] lg:text-[56px]/[64px] text-white underline decoration-[#FFE867] decoration-2 underline-offset-8" />
               </div>
             </div>
@@ -61,9 +59,6 @@ export default function Home() {
                 text="<b>Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025."
                 className="text-base/[24px]"
               />
-              {/* <p className="text-base/[24px]">
-                <b>Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025.
-              </p> */}
             </div>
           </div>
 
@@ -72,13 +67,8 @@ export default function Home() {
 
             <img src="/himarpl/HIMARPL.svg" alt="HIMARPL" className="lg:w-[1210px] w-[313px] absolute lg:top-[550px] lg:left-[130px] xl:left-[120px] top-[157px] left-[33px] z-20" />
             <AnimatedText style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold" text="scrolldown" />
-            {/* <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] tracking-[8px] top-0 xl:left-[84px] lg:left-11 left-0 font-bold">
-              scrolldown
-            </p> */}
+
             <AnimatedText style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] lg:-bottom-[28px] xl:right-[84px] tracking-[8px] bottom-0 lg:right-11 right-0 font-bold" text="scrolldown" />
-            {/* <p style={textScrollDown} className="absolute lg:text-[16px] text-[8px] lg:tracking-[28px] lg:-bottom-[28px] xl:right-[84px] tracking-[8px] bottom-0 lg:right-11 right-0 font-bold">
-              scrolldown
-            </p> */}
           </div>
         </div>
       </div>
@@ -203,7 +193,6 @@ function Sponsor() {
     <div id="sponsor" className="bg-[#FFE867] w-full z-20  py-[20px]">
       <div className=" flex flex-col justify-center items-center">
         <AnimatedText2 text="Sponsor dan Mitra Kami" className="text-[#806D00] text-2xl" />
-        {/* <h4 className="text-[#806D00] text-2xl">Sponsor dan Mitra Kami</h4> */}
 
         <div className="flex items-center flex-row lg:gap-[54px] gap-4 h-auto justify-between xl:w-[1220px] lg:w-[1255px] w-[327px] mt-4">
           {sponsors.map((sponsor, index) => (
@@ -238,13 +227,11 @@ function Dedication() {
       <img src="/ornaments/Vector 50.svg" alt="vector" className="lg:w-[306px] w-[250px] absolute bottom-0 left-0 -z-10" />
       <div className="flex flex-col justify-center items-center lg:gap-8 gap-6 lg:w-[619px] w-[343px]">
         <AnimatedLongText2 text="Dedikasi Kami" className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px] z-10" />
-        {/* <h1 className="lg:text-8xl/[54px] text-white text-center text-[64px]/[72px]">Dedikasi Kami</h1> */}
 
         <AnimatedLongText
           className="text-base/[24px] text-white text-center"
           text="Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota."
         />
-        {/* <p className="text-base/[24px] text-white text-center">Di bawah naungan Kabinet Devoria, HIMARPL UPI berkomitmen untuk menjadi wadah terbaik dalam mengembangkan potensi akademik, profesional, dan sosial seluruh anggota.</p> */}
       </div>
 
       <div className="lg:flex hidden flex-row items-center lg:gap-10 xl:gap-4 justify-evenly lg:w-[1280px] xl:w-[1220px] lg:mt-[103px] mt-8 z-10 overflow-x-scroll">
@@ -300,14 +287,11 @@ function Berita() {
 
           <AnimatedLongText className="lg:text-[64px]/[72px] text-[40px] !min-w-[343px] font-semibold" text="Akses Berita Aktual RPL di Sini." />
 
-          {/* <p className="lg:text-[64px]/[72px] text-[40px] min-w-[343px] font-semibold">Akses Berita Aktual RPL di Sini.</p> */}
           <AnimatedLongText
             className="mt-6 lg:mb-10 min-w-[343px]"
             text="<b>Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025."
           />
-          {/* <p className="mt-6 lg:mb-10 min-w-[343px]">
-            <b> Kabinet Devoria</b> adalah struktur kepengurusan Himpunan Mahasiswa Rekayasa Perangkat Lunak (HIMARPL) Universitas Pendidikan Indonesia (UPI) Kampus Cibiru untuk periode tahun 2025.
-          </p> */}
+
           <div className="border w-[206px] h-14 lg:flex hidden justify-center items-center py-4 px-6 cursor-pointer rounded-[64px] hover:scale-110 transition duration-300">
             <Link to="/berita" className=" text-[16px]/[24px] ">
               <p className="bg-transparent w-[206px] h-14 py-4 px-6 rounded-[64px]">Lihat Semua Berita</p>
@@ -334,7 +318,6 @@ function VisiMisi() {
         className="flex flex-col lg:rounded-3xl pb-4 rounded-lg lg:w-[1220px] w-[343px] gap-4 lg:h-[300px]  lg:border-8 border-4 border-[#FF4B4B]"
       >
         <div className="flex flex-row items-center justify-between bg-[#FF4B4B] lg:gap-96  rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
-          {/* <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Visi" /> */}
           <h4 className="text-white lg:text-[40px] text-base">Visi</h4>
 
           <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
@@ -344,10 +327,6 @@ function VisiMisi() {
           </div>
         </div>
 
-        {/* <AnimatedLongText
-          className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]"
-          text="Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri."
-        /> */}
         <p className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]">
           Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri.
         </p>
@@ -362,7 +341,6 @@ function VisiMisi() {
       >
         <div className="flex flex-row items-center justify-between bg-[#5573FF] lg:gap-96  rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
           <h4 className="text-white lg:text-[40px] text-base">Misi</h4>
-          {/* <AnimatedText2 className="text-white lg:text-[40px] text-base" text="Misi" /> */}
 
           <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
             <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
@@ -405,7 +383,6 @@ function Sejarah() {
   return (
     <div id="journey" className="bg-[#10316B] w-full  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
       <AnimatedLongText2 className="text-white lg:text-8xl text-[64px]/[72px] text-center" text="Perjalanan HIMARPL" />
-      {/* <h1 className="text-white lg:text-8xl text-[64px]/[72px] text-center">Perjalanan HIMARPL</h1> */}
 
       <div className="w-full h-[600px] flex flex-col items-center justify-center relative bg-[#0B409C] gap-14">
         <img src="/ornaments/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] lg:-top-28 -top-11 w-[88px] left-0" />
