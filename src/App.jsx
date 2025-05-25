@@ -9,6 +9,7 @@ import Logo from "./pages/Logo";
 import Departments from "./pages/Departments";
 import Berita from "./pages/Berita";
 import { DepartmentDetails } from "./pages/DepartmentDetails";
+import PageNotFound from "./pages/404";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="logo" element={<Logo />} />
         <Route path="be" element={<Departments />} />
         <Route path="dp" element={<Departments />} />
-        <Route path="*" element={<h1>Under Construction :D</h1>} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
       <Route path="/be/:slug" element={<DepartmentDetails />}></Route>
       <Route path="/dp/:slug" element={<DepartmentDetails />}></Route>
