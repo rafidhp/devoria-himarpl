@@ -10,6 +10,7 @@ import Departments from "./pages/Departments";
 import Berita from "./pages/Berita";
 import { DepartmentDetails } from "./pages/DepartmentDetails";
 import PageNotFound from "./pages/404";
+import EmailForm from "./pages/EmailForm";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="dp" element={<Departments />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
+      <Route path="/contact/submit" element={<EmailForm />} />
       <Route path="/be/:slug" element={<DepartmentDetails />}></Route>
       <Route path="/dp/:slug" element={<DepartmentDetails />}></Route>
     </Routes>

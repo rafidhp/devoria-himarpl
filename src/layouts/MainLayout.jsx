@@ -23,7 +23,7 @@ export default function MainLayout() {
       { to: "https://blog-himarpl.vercel.app/", label: "Blogs" },
       { to: "http://api-himarpl.vercel.app/api-docs", label: "API Documentation" },
       { to: "/be", label: "About Us" },
-      { to: "/contacts", label: "Contacts" },
+      { to: "/contact", label: "Contacts" },
     ],
   ];
 
