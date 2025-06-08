@@ -49,7 +49,7 @@ export default function Logo() {
   ];
 
   return (
-    <div className="flex flex-col items-center mx-auto lg:w-[1206px]">
+    <div className="flex flex-col items-center mx-auto lg:w-[1206px] pt-[80px]">
       <AnimatedLongText className="font-bold lg:text-8xl text-[40px] lg:pt-16 pt-10" text="FILOSOFI LOGO" />
 
       <div className="flex flex-col items-center lg:gap-[100px] gap-[64px] lg:mt-[155px] mt-[64px] w-full">

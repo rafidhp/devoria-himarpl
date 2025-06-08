@@ -30,7 +30,7 @@ const PageNews = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-80">
+      <div className="flex justify-center items-center h-screen">
         <h4 className="text-black">Loading...</h4>
       </div>
     );
@@ -40,7 +40,7 @@ const PageNews = () => {
   const [firstNews, ...otherNews] = latestNews;
 
   return (
-    <div className={`container mx-auto px-6 md:px-10 ${location.pathname === "/berita" ? "mt-[40px]" : "mt-10"}`} id="scrollableDiv">
+    <div className={`container mx-auto px-6 md:px-10 ${location.pathname === "/berita" ? "mt-[40px]" : "mt-10"} pt-[80px] min-h-screen relative overflow-y-scroll`} id="scrollableDiv">
       {/* Latest News */}
       <AnimatedLongText text="Berita Terkini" className="text-2xl font-bold mb-4" />
       <p className="text-base mb-6">Dapatkan berita terbaru seputar kegiatan kampus dan HIMARPL. Ikuti informasi penting, event, serta pencapaian mahasiswa RPL.</p>

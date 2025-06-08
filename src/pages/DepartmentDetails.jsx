@@ -123,7 +123,7 @@ export const DepartmentDetails = () => {
           <>
             <div className="w-full">
               <div className="bg-black w-fit p-3">
-                <AnimatedText className="text-7xl text-white font-bold underline decoration-[#FFE867] decoration-2 underline-offset-8" text={String(departmentDetails.acronym)} />
+                <AnimatedText className="lg:text-7xl text-3xl text-white font-bold underline decoration-[#FFE867] decoration-2 underline-offset-8" text={String(departmentDetails.acronym)} />
               </div>
             </div>
 

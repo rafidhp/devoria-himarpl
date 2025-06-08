@@ -45,7 +45,7 @@ export default function Dedication() {
   return (
     <div
       className={`bg-[#10316B] w-full overflow-y-clip z-10 relative flex flex-col justify-center items-center lg:pb-[96px] pb-[84px] ${
-        location.pathname === "/dedication" ? "-mt-[140px] lg:pt-[240px] pt-[168px]" : "mt-0 lg:pt-[123px] pt-[68px]"
+        location.pathname === "/dedication" ? "-mt-[140px] lg:pt-[240px] pt-[228px]" : "mt-0 lg:pt-[123px] pt-[68px]"
       }`}
       id="scrollableDiv"
     >
