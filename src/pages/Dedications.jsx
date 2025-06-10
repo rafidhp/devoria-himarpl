@@ -31,7 +31,7 @@ export default function Dedication() {
 
   useEffect(() => {
     setDisplayedItems(allDedikasiItems.slice(0, itemsToShow));
-  }, [itemsToShow]);
+  }, [allDedikasiItems, itemsToShow]);
   const fetchMoreData = () => {
     if (itemsToShow >= allDedikasiItems.length) {
       return;

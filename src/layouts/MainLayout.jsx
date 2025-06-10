@@ -1,7 +1,6 @@
 import { Outlet, NavLink, useLocation, Link } from "react-router-dom";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import useSmoothScroll from "../hooks/useSmoothScroll";
 import Lenis from "lenis";
 
 export default function MainLayout() {
