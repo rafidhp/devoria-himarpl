@@ -8,7 +8,7 @@ export const StrukturOrganisasi = () => {
   const [activeSection, setActiveSection] = useState("be");
 
   return (
-    <div id="strukturOrganisasi" className="bg-white pt-10 lg:pt-[68px] flex flex-col items-center pb-[50px]">
+    <div id="strukturOrganisasi" className={`bg-white  flex flex-col items-center pb-[50px] ${location.pathname === "/struktur" ? "pt-20 lg:pt-[88px]" : "pt-10 lg:pt-[68px]"}`}>
       <div className="flex flex-col items-center lg:w-[1053px] w-[343px] gap-4">
         <AnimatedLongText className="lg:text-8xl text-center text-[40px] font-bold" text="Struktur Organisasi" />
         <div className="lg:w-[700px] w-[343px]">
