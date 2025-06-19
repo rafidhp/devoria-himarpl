@@ -13,8 +13,10 @@ import AnimatedText2 from "../components/AnimatedText2";
 import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import AnimatedImage from "../components/AnimatedImage";
+import NewsMarquee from "../components/NewsMarquee";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
+import { HyperText } from "@/components/magicui/hyper-text";
 
 const duration = 0.6;
 const delay = 0;
@@ -48,7 +50,10 @@ export default function Home() {
         <div className="relative">
           <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:w-[1220px] lg:mx-[110px] mx-4">
             <div className="lg:max-w-[555px] flex flex-col gap-2">
-              <AnimatedText text="HIMARPL" className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]" />
+              {/* <AnimatedText text="HIMARPL" className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]" /> */}
+              <HyperText startOnView={true} duration={1500} className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]">
+                HIMARPL
+              </HyperText>
               <div className="bg-black p-2">
                 <AnimatedText text="Kabinet Devoria" className="font-bold text-[32px] lg:text-[56px]/[64px] text-white underline decoration-[#FFE867] decoration-2 underline-offset-8" />
               </div>
@@ -76,11 +81,13 @@ export default function Home() {
       <Sponsor />
       <Dedication />
 
-      <Marquee className="bg-black w-full py-4 ">
+      {/* <Marquee className="bg-black w-full py-4 ">
         {[0, 1, 2, 3].map((i) => (
           <img src={i % 2 === 1 ? "/ornaments/NEWS.svg" : "/ornaments/NEWS (1).svg"} alt="news" className="lg:w-[540px] w-[270px] lg:mr-4 mr-2" key={i} />
         ))}
-      </Marquee>
+      </Marquee> */}
+
+      <NewsMarquee />
 
       <Berita />
 
@@ -197,7 +204,7 @@ function Sponsor() {
         <div className="flex items-center flex-row lg:gap-[54px] gap-4 h-auto justify-between xl:w-[1220px] lg:w-[1255px] w-[327px] mt-4">
           {sponsors.map((sponsor, index) => (
             <div key={index} className="flex items-center ">
-              <img src={sponsor.src} alt={sponsor.alt} className={` h-auto`} style={{ width: "100%", maxWidth: sponsor.maxWidth, minWidth: sponsor.minWidth }} />
+              <img src={sponsor.src} alt={sponsor.alt} className={` h-auto hover:scale-110 transform duration-300 ease-out`} style={{ width: "100%", maxWidth: sponsor.maxWidth, minWidth: sponsor.minWidth }} />
             </div>
           ))}
         </div>
@@ -309,7 +316,7 @@ function VisiMisi() {
       <img src="/ornaments/Group 251.svg" alt="pixel" className="lg:w-[181px] w-[64px] absolute lg:-top-7 top-0 right-0 -z-20" />
       <img src="/ornaments/Group 250.svg" alt="pixel" className="lg:w-[207px] w-[80px] absolute bottom-0 left-0 -z-20" />
 
-      <motion.div
+      <Motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
@@ -330,8 +337,8 @@ function VisiMisi() {
         <p className="text-white lg:text-[24px]/[40px] lg:mx-6 mx-4 text-base/[24px]">
           Menjadi himpunan mahasiswa yang aktif, inovatif, dan kolaboratif dalam mengembangkan potensi akademik, profesional, dan sosial mahasiswa Rekayasa Perangkat Lunak UPI, serta berkontribusi positif bagi masyarakat dan dunia industri.
         </p>
-      </motion.div>
-      <motion.div
+      </Motion.div>
+      <Motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
@@ -362,7 +369,7 @@ function VisiMisi() {
             </p>
           ))}
         </ul>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 }
@@ -407,7 +414,7 @@ function Sejarah() {
             {cabinets.map((cabinet, index) => {
               return (
                 <SwiperSlide key={index} className="">
-                  <div className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-105 transform duration-300 ease-in-out">
+                  <div className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-105 transform duration-300 ease-out">
                     <img src={cabinet.src} alt={cabinet.alt} className="h-[128px] w-auto" />
                     <div className="flex flex-col items-center justify-center gap-2">
                       <p className="font-semibold text-2xl">{cabinet.name}</p>
@@ -423,14 +430,14 @@ function Sejarah() {
             {cabinets.map((cabinet, index) => {
               return (
                 // ntar animasiin elemennya aja
-                <motion.div
+                <Motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
                   transition={{ duration, delay }}
                   variants={animations}
                   key={index}
-                  className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-110 transform duration-300 ease-in-out"
+                  className="flex flex-col items-center justify-center gap-[64px] z-10 hover:cursor-pointer hover:scale-110 transform duration-300 ease-out"
                 >
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px] w-full" />
 
@@ -438,7 +445,7 @@ function Sejarah() {
                     <p className="font-semibold text-2xl">{cabinet.name}</p>
                     <h1 className="text-[#4B4B4B] font-normal">{cabinet.year}</h1>
                   </div>
-                </motion.div>
+                </Motion.div>
               );
             })}
           </div>
