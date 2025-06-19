@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { motion as Motion, useAnimationFrame, useMotionValue, useScroll, useVelocity, useSpring, useTransform, wrap } from "motion/react";
 
 // export default function NewsMarquee() {
