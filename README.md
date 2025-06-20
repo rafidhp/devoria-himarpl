@@ -27,7 +27,7 @@
 
 ## What is this repository?
 
-This repository contains the source code for the <a href="https://www.himarpl.com">himarpl.com</a> website. It is built using <a href="https://nextjs.org">Next.js</a>, a <a href="https://react.dev/">React Framework</a>, and Prisma for database management.
+This repository contains the source code for the <a href="https://www.himarpl.org">himarpl.org</a> website. It is built using <a href="https://nextjs.org">Next.js</a>, a <a href="https://react.dev/">React Framework</a>, and Prisma for database management.
 
 ## Deployment
 
