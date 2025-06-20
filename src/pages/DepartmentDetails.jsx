@@ -7,7 +7,7 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 import { useCallback, useRef } from "react";
 import AnimatedText from "../components/AnimatedText";
 import { fetchDepartmentDetails, fetchDepartmentStaff } from "../services/apiService";
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 
 const duration = 0.6;
 const delay = 0;

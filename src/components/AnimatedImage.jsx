@@ -1,4 +1,4 @@
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 
 const AnimatedImage = ({
   src,
