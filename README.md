@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.himarpl.com">himarpl.com</a> built using React JS with Vite.
+  <a href="https://www.himarpl.org">himarpl.org</a> built using React JS with Vite.
 </p>
 
 <p align="center">
