@@ -7,6 +7,7 @@ import { CardContent } from "../components/CardContentNews";
 import { CarouselNews } from "../components/CarouselNews";
 import axios from "axios";
 import { CarouselNewsDesktop } from "../components/CarouselNews";
+import Loading from "@/components/LoadingSpinner";
 
 const PageNews = () => {
   const [news, setNews] = useState([]);
@@ -31,29 +32,80 @@ const PageNews = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <h4 className="text-black">Loading...</h4>
+        <Loading />
       </div>
     );
   }
   const latestNews = [...news].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 4);
 
   const [firstNews, ...otherNews] = latestNews;
+  const dummyNews = [
+  {
+    title: "HIMARPL Gelar Pelatihan UI/UX Design",
+    content: "Pelatihan UI/UX HIMARPL berlangsung dengan antusiasme tinggi dari peserta...",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Pelatihan" }],
+  },
+  {
+    title: "Kunjungan Industri ke PT Telkom Indonesia",
+    content: "Mahasiswa RPL berkesempatan mengunjungi Telkom Indonesia untuk melihat sistem kerja profesional.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Kunjungan" }],
+  },
+  {
+    title: "HIMARPL Meraih Juara di Lomba Coding Nasional",
+    content: "Tim HIMARPL berhasil meraih posisi juara 1 dalam ajang lomba coding tingkat nasional.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Prestasi" }],
+  },
+  {
+    title: "Rapat Kerja HIMARPL 2025",
+    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Organisasi" }],
+  },
+  {
+    title: "Rapat Kerja HIMARPL 2025",
+    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Organisasi" }],
+  },
+  {
+    title: "Rapat Kerja HIMARPL 2025",
+    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Organisasi" }],
+  },
+  {
+    title: "Rapat Kerja HIMARPL 2025",
+    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Organisasi" }],
+  },
+  {
+    title: "Rapat Kerja HIMARPL 2025",
+    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
+    image: "/himarpl/fullteam.jpeg",
+    postTags: [{ title: "Organisasi" }],
+  },
+];
+
 
   return (
     <>
       {news.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-16 text-center min-h-screen">
+        <div className="flex flex-col items-center justify-center text-center min-h-screen">
           <img
-            src="/himarpl/Maskot.svg"
+            src="/himarpl/Maskot4.1.png"
             alt="Belum ada berita"
-            className="w-40 h-40  opacity-70"
+            className="w-50 h-50  opacity-70"
           />
-          <AnimatedLongText text={"There is no news yet"} className=" text-2xl lg:text-3xl text-center mb-10" />
-          <div className="border  h-14 lg:flex hidden justify-center items-center py-4 px-6 cursor-pointer rounded-[64px] hover:scale-110 transition duration-300">
-          <Link to="/" className=" text-[16px]/[24px] ">
-            <p className="bg-transparent  h-14 py-4 px-6 rounded-[64px]">Kembali ke beranda</p>
-          </Link>
-        </div>
+          <AnimatedLongText text={"There is no news yet"} className=" md:text-xl text-md text-center mb-5" />
+          <div className="border bg-black h-14 flex justify-center items-center py-4 px-6 cursor-pointer rounded-xl hover:scale-110 hover:shadow-lg transition duration-300">
+            <Link to="/" className=" text-[16px]/[24px] ">
+              <p className="h-14 py-4 px-6 rounded-[64px] text-white">Kembali ke beranda</p>
+            </Link>
+          </div>
         </div>
       ) : (
         <div className={`container mx-auto px-6 md:px-10 ${location.pathname === "/berita" ? "mt-[40px]" : "mt-10"} pt-[80px] min-h-screen relative overflow-y-scroll`} id="scrollableDiv">
@@ -95,10 +147,10 @@ const PageNews = () => {
         <p className="text-base mb-6">Telusuri seluruh berita seputar HIMARPL dan aktivitas kampus. Jangan lewatkan informasi terbaru, agenda penting, dan kisah inspiratif dari mahasiswa RPL.</p>
 
         {/* Carousel & card for deskrop */}
-        <CarouselNewsDesktop data={news} />
+        <CarouselNewsDesktop data={dummyNews} />
 
         {/* Carousel for Mobile */}
-        <CarouselNews data={news} />
+        <CarouselNews data={dummyNews} />
       </div>
     )}
   </>
