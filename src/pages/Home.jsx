@@ -14,9 +14,9 @@ import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import AnimatedImage from "../components/AnimatedImage";
 import NewsMarquee from "../components/NewsMarquee";
-// eslint-disable-next-line no-unused-vars
 import { motion as Motion } from "motion/react";
 import { HyperText } from "@/components/magicui/hyper-text";
+import SEO from "@/lib/seo";
 
 const duration = 0.6;
 const delay = 0;
@@ -46,11 +46,13 @@ export default function Home() {
 
   return (
     <>
+      <SEO />
       <div id="home" className="pt-[80px] bg-white ">
         <div className="relative">
           <div className="flex lg:flex-row flex-col lg:gap-32 gap-4 lg:items-center items-start  lg:w-[1220px] lg:mx-[110px] mx-4">
             <div className="lg:max-w-[555px] flex flex-col gap-2">
               {/* <AnimatedText text="HIMARPL" className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]" /> */}
+              <h1 className="sr-only">HIMARPL</h1>
               <HyperText startOnView={true} duration={1500} className="font-bold text-[40px]/[64px] lg:text-[56px]/[64px]">
                 HIMARPL
               </HyperText>
@@ -458,7 +460,7 @@ function Sejarah() {
             borderImage: "repeating-linear-gradient(to right, #FFE867 0 60px, transparent 60px 80px)",
             borderImageSlice: 1,
           }}
-        ></div>
+        />
       </div>
     </div>
   );
