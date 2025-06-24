@@ -24,4 +24,4 @@ tailwind.config.js
 *.sln
 *.sw?
 
-*.txt
+devoria-himarpl-github-action-token.txt

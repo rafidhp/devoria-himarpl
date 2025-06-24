@@ -20,7 +20,7 @@ function App() {
         <Route path="struktur" element={<StrukturOrganisasi />} />
         <Route path="contact" element={<Contacts />} />
         <Route path="dedication" element={<Dedication />} />
-        {/* <Route path="berita" element={<Berita />} /> */}
+        <Route path="berita" element={<Berita />} />
         <Route path="logo" element={<Logo />} />
         {/* <Route path="be" element={<Departments />} />
         <Route path="dp" element={<Departments />} /> */}
