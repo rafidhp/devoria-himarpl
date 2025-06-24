@@ -39,58 +39,6 @@ const PageNews = () => {
   const latestNews = [...news].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 4);
 
   const [firstNews, ...otherNews] = latestNews;
-  const dummyNews = [
-  {
-    title: "HIMARPL Gelar Pelatihan UI/UX Design",
-    content: "Pelatihan UI/UX HIMARPL berlangsung dengan antusiasme tinggi dari peserta...",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Pelatihan" }],
-  },
-  {
-    title: "Kunjungan Industri ke PT Telkom Indonesia",
-    content: "Mahasiswa RPL berkesempatan mengunjungi Telkom Indonesia untuk melihat sistem kerja profesional.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Kunjungan" }],
-  },
-  {
-    title: "HIMARPL Meraih Juara di Lomba Coding Nasional",
-    content: "Tim HIMARPL berhasil meraih posisi juara 1 dalam ajang lomba coding tingkat nasional.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Prestasi" }],
-  },
-  {
-    title: "Rapat Kerja HIMARPL 2025",
-    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Organisasi" }],
-  },
-  {
-    title: "Rapat Kerja HIMARPL 2025",
-    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Organisasi" }],
-  },
-  {
-    title: "Rapat Kerja HIMARPL 2025",
-    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Organisasi" }],
-  },
-  {
-    title: "Rapat Kerja HIMARPL 2025",
-    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Organisasi" }],
-  },
-  {
-    title: "Rapat Kerja HIMARPL 2025",
-    content: "Rapat kerja tahunan HIMARPL digelar untuk merumuskan program kerja 2025.",
-    image: "/himarpl/fullteam.jpeg",
-    postTags: [{ title: "Organisasi" }],
-  },
-];
-
-
   return (
     <>
       {news.length === 0 ? (
@@ -147,10 +95,10 @@ const PageNews = () => {
         <p className="text-base mb-6">Telusuri seluruh berita seputar HIMARPL dan aktivitas kampus. Jangan lewatkan informasi terbaru, agenda penting, dan kisah inspiratif dari mahasiswa RPL.</p>
 
         {/* Carousel & card for deskrop */}
-        <CarouselNewsDesktop data={dummyNews} />
+        <CarouselNewsDesktop data={news} />
 
         {/* Carousel for Mobile */}
-        <CarouselNews data={dummyNews} />
+        <CarouselNews data={news} />
       </div>
     )}
   </>
