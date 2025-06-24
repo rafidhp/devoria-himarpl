@@ -113,7 +113,7 @@ const PageNews = () => {
         <AnimatedLongText text="Berita Terkini" className="text-2xl font-bold mb-4" />
         <p className="text-base mb-6">Dapatkan berita terbaru seputar kegiatan kampus dan HIMARPL. Ikuti informasi penting, event, serta pencapaian mahasiswa RPL.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
           {/* Card for Desktop */}
           {firstNews && (
             <Card className="md:col-span-2 hidden md:block">
