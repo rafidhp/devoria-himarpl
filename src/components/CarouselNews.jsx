@@ -17,7 +17,7 @@ export const CarouselNews = ({ data }) => {
           {data.map((item, index) => (
             <CarouselItem
               key={index}
-              className="basis-[85%] pl-2 pr-4"
+              className="basis-[100%] "
             >
               <Card className="w-full">
                 <CardContent>
@@ -29,8 +29,8 @@ export const CarouselNews = ({ data }) => {
                   <span className="text-xs font-medium text-gray-500 border rounded-sm p-0.5">
                     {item.postTags?.[0]?.title || "Umum"}
                   </span>
-                  <h2 className="text-base font-medium mt-1 mb-2">
-                    {item.title}
+                  <h2 className="text-base font-medium mt-1 mb-2 line-clamp-2 ">
+                    {item.content}
                   </h2>
                 </CardContent>
               </Card>
@@ -51,7 +51,7 @@ export const CarouselNewsDesktop = ({ data }) => {
           {data.map((item, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/4 pl-2 pr-2"
+              className="basis-1/4"
             >
               <Card className="w-full">
                 <CardContent>
@@ -63,7 +63,7 @@ export const CarouselNewsDesktop = ({ data }) => {
                   <span className="text-xs font-medium text-gray-500 border rounded-sm p-0.5">
                     {item.postTags?.[0]?.title || "Umum"}
                   </span>
-                  <h3 className="text-sm font-medium mt-1 line-clamp-3">
+                  <h3 className="text-sm font-medium mt-1 line-clamp-2">
                     {item.content}
                   </h3>
                 </CardContent>
@@ -77,3 +77,4 @@ export const CarouselNewsDesktop = ({ data }) => {
     </div>
   );
 };
+
