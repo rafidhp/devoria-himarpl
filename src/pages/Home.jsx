@@ -18,7 +18,7 @@ import { motion as Motion } from "motion/react";
 import { HyperText } from "@/components/magicui/hyper-text";
 import SEO from "@/lib/seo";
 import Transition from "@/components/Transition";
-
+import { AnimatePresence } from "motion/react";
 const duration = 0.6;
 const delay = 0;
 const threshold = 0.1;
@@ -48,7 +48,9 @@ export default function Home() {
   return (
     <>
       <SEO />
-      <Transition />
+      <AnimatePresence mode="wait">
+        <Transition />
+      </AnimatePresence>
       <div id="home" className="pt-[80px] bg-white ">
         <div className="relative">
           <div className="flex md:flex-row flex-col lg:gap-32 gap-4 md:items-center justify-between items-start  lg:w-[1220px] lg:mx-[110px] mx-4">
