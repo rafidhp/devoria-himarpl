@@ -4,7 +4,7 @@ import { AnimatePresence } from "motion/react";
 export default function Transition() {
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <Motion.div
           key="transition1"
           className="fixed top-0 bottom-0 right-full w-screen h-screen z-[100] bg-[#0B409C]"
