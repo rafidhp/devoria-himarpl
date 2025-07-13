@@ -11,31 +11,25 @@ import Berita from "./pages/Berita";
 import { DepartmentDetails } from "./pages/DepartmentDetails";
 import PageNotFound from "./pages/404";
 import EmailForm from "./pages/EmailForm";
-import { AnimatePresence } from "motion/react";
-import { useLocation } from "react-router-dom";
 
 function App() {
-  const location = useLocation();
-
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="struktur" element={<StrukturOrganisasi />} />
-          <Route path="contact" element={<Contacts />} />
-          <Route path="dedication" element={<Dedication />} />
-          <Route path="berita" element={<Berita />} />
-          <Route path="logo" element={<Logo />} />
-          {/* <Route path="be" element={<Departments />} />
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="struktur" element={<StrukturOrganisasi />} />
+        <Route path="contact" element={<Contacts />} />
+        <Route path="dedication" element={<Dedication />} />
+        <Route path="berita" element={<Berita />} />
+        <Route path="logo" element={<Logo />} />
+        {/* <Route path="be" element={<Departments />} />
         <Route path="dp" element={<Departments />} /> */}
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-        <Route path="/contact/submit" element={<EmailForm />} />
-        {/* <Route path="/be/:slug" element={<DepartmentDetails />}></Route>
+        <Route path="*" element={<PageNotFound />} />
+      </Route>
+      <Route path="/contact/submit" element={<EmailForm />} />
+      {/* <Route path="/be/:slug" element={<DepartmentDetails />}></Route>
       <Route path="/dp/:slug" element={<DepartmentDetails />}></Route> */}
-      </Routes>
-    </AnimatePresence>
+    </Routes>
   );
 }
 
