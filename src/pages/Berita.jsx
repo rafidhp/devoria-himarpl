@@ -42,7 +42,7 @@ const PageNews = () => {
   const [firstNews, ...otherNews] = latestNews;
   return (
     <>
-      <Transition />
+      {/* <Transition /> */}
       {news.length === 0 ? (
         <div className="flex flex-col items-center justify-center text-center min-h-screen">
           <img src="/himarpl/Maskot4.1.png" alt="Belum ada berita" className="w-50 h-50  opacity-70" />

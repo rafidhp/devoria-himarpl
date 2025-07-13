@@ -45,7 +45,7 @@ export default function Dedication() {
 
   return (
     <>
-      {location.pathname === "/dedication" && <Transition />}
+      {/* {location.pathname === "/dedication" && <Transition />} */}
 
       <div
         className={`bg-[#10316B] w-full min-h-screen overflow-y-clip z-10 relative flex flex-col justify-center items-center lg:pb-[96px] pb-[84px] ${

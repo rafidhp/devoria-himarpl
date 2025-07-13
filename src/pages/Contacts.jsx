@@ -8,7 +8,7 @@ import Transition from "@/components/Transition";
 export const Contacts = () => {
   return (
     <>
-      {location.pathname === "/contact" && <Transition />}
+      {/* {location.pathname === "/contact" && <Transition />} */}
 
       <div
         id="contact"
