@@ -12,11 +12,14 @@ import { DepartmentDetails } from "./pages/DepartmentDetails";
 import PageNotFound from "./pages/404";
 import EmailForm from "./pages/EmailForm";
 import { AnimatePresence } from "motion/react";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+
   return (
     <AnimatePresence mode="wait">
-      <Routes>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="struktur" element={<StrukturOrganisasi />} />
