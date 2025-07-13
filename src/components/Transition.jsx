@@ -1,6 +1,6 @@
 import { motion as Motion } from "motion/react";
 
-const Transition = () => {
+export default function Transition() {
   return (
     <>
       <Motion.div
@@ -16,6 +16,4 @@ const Transition = () => {
       <Motion.div className="fixed top-0 bottom-0 right-full w-screen h-screen z-[98] bg-[#FFE867]" initial={{ x: "100%", width: "100%" }} animate={{ x: "0%", width: "0%" }} transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }} />
     </>
   );
-};
-
-export default Transition;
+}
