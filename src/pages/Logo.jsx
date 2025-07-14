@@ -51,6 +51,7 @@ export default function Logo() {
 
   return (
     <>
+      <Transition />
       <div className="flex flex-col items-center mx-auto lg:w-[1206px] pt-[80px]">
         <AnimatedLongText className="font-bold lg:text-8xl text-[40px] lg:pt-16 pt-10" text="FILOSOFI LOGO" />
 

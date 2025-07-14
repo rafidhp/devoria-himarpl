@@ -42,6 +42,7 @@ const PageNews = () => {
   const [firstNews, ...otherNews] = latestNews;
   return (
     <>
+      <Transition />
       {/* <Transition /> */}
       {news.length === 0 ? (
         <div className="flex flex-col items-center justify-center text-center min-h-screen">

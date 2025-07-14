@@ -81,6 +81,7 @@ export const Departments = () => {
 
   return (
     <>
+      <Transition />
       <div id="departments" className="bg-[url(/bg/Bg-Low.png)] pt-[68px] flex flex-col items-center pb-[50px] w-full">
         <div className="flex flex-col items-center lg:w-[1210px] w-[343px] lg:gap-8 gap-6">
           <AnimatedLongText className="lg:text-7xl text-[32px] text-center text-[#4B4B4B] font-semibold" text={"STRUKTUR KEPENGURUSAN"} />
