@@ -131,7 +131,6 @@ export default function MainLayout() {
 
   return (
     <>
-      <Transition />
       <div
         id="scrollableDiv"
         className="min-h-screen relative"
