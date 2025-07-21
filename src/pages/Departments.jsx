@@ -68,14 +68,18 @@ export const Departments = () => {
   // Show error state when no data and error exists
   if (error && kepengurusanData.length === 0) {
     return (
-      <div className="flex justify-center items-center min-h-screen w-screen bg-[url(/bg/Bg-Low.png)]">
-        <div className="text-center">
-          <div className="text-xl text-red-500 mb-4">Error: {error}</div>
-          <button onClick={() => window.location.reload()} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-            Retry
-          </button>
+      <>
+        <Transition />
+
+        <div className="flex justify-center items-center min-h-screen w-screen bg-[url(/bg/Bg-Low.png)]">
+          <div className="text-center">
+            <div className="text-xl text-red-500 mb-4">Error: {error}</div>
+            <button onClick={() => window.location.reload()} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+              Retry
+            </button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
