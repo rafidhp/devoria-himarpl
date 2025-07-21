@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./home.css";
+import { useState } from "react";
 import { CardDedication } from "../components/CardDedication";
 import { StrukturOrganisasi } from "./StrukturOrganisasi";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,7 +15,7 @@ import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import AnimatedImage from "../components/AnimatedImage";
 import NewsMarquee from "../components/NewsMarquee";
-import { motion as Motion } from "motion/react";
+import { AnimatePresence, motion as Motion } from "motion/react";
 import { HyperText } from "@/components/magicui/hyper-text";
 import SEO from "@/lib/seo";
 import Transition from "@/components/Transition";
@@ -24,6 +25,11 @@ const threshold = 0.1;
 const animations = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0 },
+};
+const animations2 = {
+  hidden: { opacity: 0, y: -50 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -50 },
 };
 
 export default function Home() {
@@ -387,23 +393,36 @@ function Sejarah() {
     color: "transparent",
   };
   const cabinets = [
-    { src: "/cabinetsLogo/inisiator.png", alt: "Inisiator", name: "Inisiator", year: "2020" },
-    { src: "/cabinetsLogo/inspira.png", alt: "Inspira", name: "Inspira", year: "2021" },
-    { src: "/cabinetsLogo/explora.png", alt: "Explora", name: "Explora", year: "2022" },
-    { src: "/cabinetsLogo/manifest.png", alt: "Manifest", name: "Manifest", year: "2023" },
-    { src: "/cabinetsLogo/ascendia.png", alt: "Ascendia", name: "Ascendia", year: "2024" },
-    { src: "/cabinetsLogo/Devoria.svg", alt: "Devoria", name: "Devoria", year: "2025" },
+    { id: 0, src: "/cabinetsLogo/inisiator.png", alt: "Inisiator", name: "Inisiator", year: "2020" },
+    { id: 1, src: "/cabinetsLogo/inspira.png", alt: "Inspira", name: "Inspira", year: "2021" },
+    { id: 2, src: "/cabinetsLogo/explora.png", alt: "Explora", name: "Explora", year: "2022" },
+    { id: 3, src: "/cabinetsLogo/manifest.png", alt: "Manifest", name: "Manifest", year: "2023" },
+    { id: 4, src: "/cabinetsLogo/ascendia.png", alt: "Ascendia", name: "Ascendia", year: "2024" },
+    { id: 5, src: "/cabinetsLogo/Devoria.svg", alt: "Devoria", name: "Devoria", year: "2025" },
   ];
+
+  const stories = [
+    { kabinet: "Inisiator", ketuaBe: "Rayhan", waKetuBe: "Daffa", ketuaDp: "Guntur", waketuDp: "Rilo" },
+    { kabinet: "Inspira", ketuaBe: "Muhammad Reynaldi", waKetuBe: "Naufal Geraldi H.", ketuaDp: "Athoillah Sholahuddin", waketuDp: "Arfi Triawan" },
+    { kabinet: "Explora", ketuaBe: "Ali Aziz Fadilah", waKetuBe: "Bagus Subagja", ketuaDp: "Arfi Triawan", waketuDp: "Fikri Habib Ramadhan" },
+    { kabinet: "Manifest", ketuaBe: "Calzy Akmal I", waKetuBe: "Genta Alima Persada", ketuaDp: "M. Rafid Miftah", waketuDp: "Farrel Fadilah Sananda" },
+    { kabinet: "Ascendia", ketuaBe: "Andhika Pangestu", waKetuBe: "M. Rifky Janzani", ketuaDp: "Nauval Gymnasti", waketuDp: "Chandra Mukti Gimnastiyar" },
+    { kabinet: "Devoria", ketuaBe: "Fadli Mahesa", waKetuBe: "Nur Fitriani", ketuaDp: "Asep Nadhirin", waketuDp: "Achmad Soewardi" },
+  ];
+
+  const [activeCabinet, setActiveCabinet] = useState(false);
+  const [activeStory, setActiveStory] = useState(0);
+
   return (
-    <div id="journey" className="bg-[#10316B] w-full  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
+    <div id="journey" className="bg-[#10316B] w-full h-fit  items-center lg:gap-[135px] gap-[88px] flex flex-col justify-center lg:py-[68px] pt-[40px] pb-8">
       <AnimatedLongText2 className="text-white lg:text-8xl text-[64px]/[72px] text-center" text="Perjalanan HIMARPL" />
 
-      <div className="w-full lg:h-[600px] h-fit flex flex-col items-center justify-center relative bg-[#0B409C] gap-14">
+      <div className="w-full  h-fit flex flex-col items-center justify-center relative bg-[#0B409C] gap-14">
         <img src="/ornaments/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] lg:-top-28 -top-11 w-[88px] left-0" />
         <img src="/ornaments/Group 253.svg" alt="pixel" className="absolute lg:w-[128px] w-[88px] lg:-top-28 -top-11  right-0 scale-x-[-1]" />
 
         <div className="bg-[#FFE867] h-2 w-[1084px]"></div>
-        <div className="bg-[#F2F7FF] w-full lg:h-[400px] md:h-[600px] h-[400px]  flex items-center justify-center relative">
+        <div className="bg-[#F2F7FF] w-full lg:min-h-[400px] lg:h-fit md:py-[100px]  h-[400px]  flex items-center flex-col justify-center relative gap-8">
           <p className=" absolute lg:text-[300px] select-none text-[64px]" style={textStyle1}>
             KABINET
           </p>
@@ -433,7 +452,7 @@ function Sejarah() {
             })}
           </Swiper>
 
-          <div className=" xl:w-[1220px] lg:w-[1312px] md:flex md:w-[600px] hidden items-center justify-between lg:gap-0 gap-8 flex-wrap ">
+          <div className=" xl:w-[1220px] lg:w-[1312px] md:flex md:w-[600px] hidden items-center justify-between   flex-wrap ">
             {cabinets.map((cabinet, index) => {
               return (
                 // ntar animasiin elemennya aja
@@ -445,6 +464,10 @@ function Sejarah() {
                   variants={animations}
                   key={index}
                   className="flex flex-col  items-center justify-center lg:gap-[64px] md:gap-10 z-10 hover:cursor-pointer hover:scale-110 transform duration-300 ease-out"
+                  onClick={() => {
+                    setActiveCabinet(true);
+                    setActiveStory(cabinet.id);
+                  }}
                 >
                   <img src={cabinet.src} alt={cabinet.alt} className="max-h-[128px]  w-full" />
 
@@ -456,6 +479,40 @@ function Sejarah() {
               );
             })}
           </div>
+          {activeCabinet && (
+            <AnimatePresence>
+              <Motion.div
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -130px 0px", amount: threshold }}
+                transition={{ duration, delay }}
+                // variants={animations2}
+                className="flex flex-col lg:rounded-3xl rounded-lg lg:w-[1220px] md:w-[600px] w-[343px] gap-4 lg:h-fit lg:pb-5 pb-4 lg:border-8 border-4 border-[#ff7f11]  bg-white z-10"
+              >
+                <div className="flex flex-row items-center justify-between bg-[#ff7f11] lg:gap-96  rounded-t-[4px] max-w-full lg:px-6 lg:py-4 px-4 py-2">
+                  <h4 className="text-white lg:text-[40px] text-base">Pimpinan {stories[activeStory].kabinet}</h4>
+
+                  <div className="flex flex-row items-center justify-between lg:gap-4 gap-[4.5px]">
+                    <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+                    <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+                    <div className="lg:w-6 lg:h-6 w-[6.75px] h-[6.75px] bg-white rounded-full"></div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-start justify-start px-6 gap-4">
+                  <div>
+                    <p>Ketua Badan Eksekutif: {stories[activeStory].ketuaBe}</p>
+                    <p>Wakil Ketua Badan Eksekutif: {stories[activeStory].waKetuBe}</p>
+                  </div>
+                  <div>
+                    <p>Ketua Dewan Perwakilan: {stories[activeStory].ketuaDp}</p>
+                    <p>Wakil Ketua Dewan Perwakilan: {stories[activeStory].waketuDp}</p>
+                  </div>
+                </div>
+              </Motion.div>
+            </AnimatePresence>
+          )}
         </div>
 
         <div

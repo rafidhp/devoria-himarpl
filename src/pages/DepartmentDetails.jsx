@@ -173,7 +173,7 @@ export const DepartmentDetails = () => {
       )}
 
       <div className="flex items-center justify-center w-full pt-20">
-        <div className="flex flex-row flex-wrap lg:gap-x-48 lg:gap-y-28 justify-center my-10 lg:w-[1000px] w-[343px] gap-[55px]">
+        <div className="flex flex-row flex-wrap lg:gap-x-48 lg:gap-y-56 justify-center my-10 lg:w-[1000px] w-[343px] gap-[55px]">
           {departmentStaffs &&
             Array.isArray(departmentStaffs) &&
             departmentStaffs.map((item, index) => (
