@@ -23,7 +23,7 @@ export const Departments = () => {
         setError(null);
 
         // Use the configured API instance from apiService
-        const response = await axios.get(`/api/departments?type=${type}&year=2025&limit=55`);
+        const response = await axios.get(`/api/departments?type=${type}&year=2025&limit=50`);
         console.log(response.data.data);
 
         const data = response.data;
