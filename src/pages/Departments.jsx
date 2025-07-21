@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { api } from "../services/apiService";
+// import { api } from "../services/apiService";
 import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import { CardKepengurusan } from "../components/CardKepengurusan";
