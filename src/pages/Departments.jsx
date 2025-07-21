@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-// import { api } from "../services/apiService";
+import { api } from "../services/apiService";
 import AnimatedLongText from "../components/AnimatedLongText";
 import AnimatedLongText2 from "../components/AnimatedLongText2";
 import { CardKepengurusan } from "../components/CardKepengurusan";
 import Transition from "@/components/Transition";
-import axios from "axios";
 
 export const Departments = () => {
   const location = useLocation();
@@ -23,7 +22,7 @@ export const Departments = () => {
         setError(null);
 
         // Use the configured API instance from apiService
-        const response = await axios.get(`/api/departments?type=${type}&year=2025&limit=55`);
+        const response = await api.get(`/departments?type=${type}&year=2025&limit=55`);
         console.log(response.data.data);
 
         const data = response.data;
