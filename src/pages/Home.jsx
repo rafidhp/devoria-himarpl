@@ -26,11 +26,6 @@ const animations = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0 },
 };
-const animations2 = {
-  hidden: { opacity: 0, y: -50 },
-  visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -50 },
-};
 
 export default function Home() {
   const textScrollDown = {
